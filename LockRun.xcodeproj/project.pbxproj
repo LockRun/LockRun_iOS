@@ -12,6 +12,9 @@
 		7289FCB62E98CA5400595EF7 /* LockRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCB22E98CA5400595EF7 /* LockRunApp.swift */; };
 		7289FCB72E98CA5400595EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7289FCAF2E98CA5400595EF7 /* Assets.xcassets */; };
 		7289FCCB2E98CAF600595EF7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCCA2E98CAF600595EF7 /* LocationManager.swift */; };
+		7289FCF42E98DC6B00595EF7 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7289FCF32E98DC6A00595EF7 /* DeviceActivity.framework */; };
+		7289FCFC2E98DC6B00595EF7 /* ActivityMo.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7289FCF12E98DC6A00595EF7 /* ActivityMo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7289FD122E98DC8B00595EF7 /* ActivityRe.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 7289FD062E98DC8B00595EF7 /* ActivityRe.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +32,46 @@
 			remoteGlobalIDString = 7289FC732E98B84200595EF7;
 			remoteInfo = LockRun;
 		};
+		7289FCFA2E98DC6B00595EF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7289FC6C2E98B84200595EF7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7289FCF02E98DC6A00595EF7;
+			remoteInfo = ActivityMo;
+		};
+		7289FD102E98DC8B00595EF7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7289FC6C2E98B84200595EF7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7289FD052E98DC8B00595EF7;
+			remoteInfo = ActivityRe;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7289FD012E98DC6B00595EF7 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				7289FCFC2E98DC6B00595EF7 /* ActivityMo.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7289FD172E98DC8B00595EF7 /* Embed ExtensionKit Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(EXTENSIONS_FOLDER_PATH)";
+			dstSubfolderSpec = 16;
+			files = (
+				7289FD122E98DC8B00595EF7 /* ActivityRe.appex in Embed ExtensionKit Extensions */,
+			);
+			name = "Embed ExtensionKit Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7289FC742E98B84200595EF7 /* LockRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,7 +82,28 @@
 		7289FCB12E98CA5400595EF7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		7289FCB22E98CA5400595EF7 /* LockRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockRunApp.swift; sourceTree = "<group>"; };
 		7289FCCA2E98CAF600595EF7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		7289FCF12E98DC6A00595EF7 /* ActivityMo.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ActivityMo.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7289FCF32E98DC6A00595EF7 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
+		7289FD062E98DC8B00595EF7 /* ActivityRe.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = ActivityRe.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		7289FD182E98DCBD00595EF7 /* LockRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LockRun.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		7289FCFD2E98DC6B00595EF7 /* Exceptions for "ActivityMo" folder in "ActivityMo" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 7289FCF02E98DC6A00595EF7 /* ActivityMo */;
+		};
+		7289FD132E98DC8B00595EF7 /* Exceptions for "ActivityRe" folder in "ActivityRe" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 7289FD052E98DC8B00595EF7 /* ActivityRe */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		7289FC862E98B84400595EF7 /* LockRunTests */ = {
@@ -51,6 +114,22 @@
 		7289FC902E98B84400595EF7 /* LockRunUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LockRunUITests;
+			sourceTree = "<group>";
+		};
+		7289FCF52E98DC6B00595EF7 /* ActivityMo */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7289FCFD2E98DC6B00595EF7 /* Exceptions for "ActivityMo" folder in "ActivityMo" target */,
+			);
+			path = ActivityMo;
+			sourceTree = "<group>";
+		};
+		7289FD072E98DC8B00595EF7 /* ActivityRe */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				7289FD132E98DC8B00595EF7 /* Exceptions for "ActivityRe" folder in "ActivityRe" target */,
+			);
+			path = ActivityRe;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -77,6 +156,21 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7289FCEE2E98DC6A00595EF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7289FCF42E98DC6B00595EF7 /* DeviceActivity.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7289FD032E98DC8B00595EF7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -86,6 +180,9 @@
 				7289FCB32E98CA5400595EF7 /* LockRun */,
 				7289FC862E98B84400595EF7 /* LockRunTests */,
 				7289FC902E98B84400595EF7 /* LockRunUITests */,
+				7289FCF52E98DC6B00595EF7 /* ActivityMo */,
+				7289FD072E98DC8B00595EF7 /* ActivityRe */,
+				7289FCF22E98DC6A00595EF7 /* Frameworks */,
 				7289FC752E98B84200595EF7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,6 +193,8 @@
 				7289FC742E98B84200595EF7 /* LockRun.app */,
 				7289FC832E98B84400595EF7 /* LockRunTests.xctest */,
 				7289FC8D2E98B84400595EF7 /* LockRunUITests.xctest */,
+				7289FCF12E98DC6A00595EF7 /* ActivityMo.appex */,
+				7289FD062E98DC8B00595EF7 /* ActivityRe.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -103,6 +202,7 @@
 		7289FCB32E98CA5400595EF7 /* LockRun */ = {
 			isa = PBXGroup;
 			children = (
+				7289FD182E98DCBD00595EF7 /* LockRun.entitlements */,
 				7289FCB82E98CA5900595EF7 /* Resources */,
 				7289FCC82E98CAA900595EF7 /* Sources */,
 				7289FCAF2E98CA5400595EF7 /* Assets.xcassets */,
@@ -144,6 +244,14 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		7289FCF22E98DC6A00595EF7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7289FCF32E98DC6A00595EF7 /* DeviceActivity.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,10 +262,14 @@
 				7289FC702E98B84200595EF7 /* Sources */,
 				7289FC712E98B84200595EF7 /* Frameworks */,
 				7289FC722E98B84200595EF7 /* Resources */,
+				7289FD012E98DC6B00595EF7 /* Embed Foundation Extensions */,
+				7289FD172E98DC8B00595EF7 /* Embed ExtensionKit Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				7289FCFB2E98DC6B00595EF7 /* PBXTargetDependency */,
+				7289FD112E98DC8B00595EF7 /* PBXTargetDependency */,
 			);
 			name = LockRun;
 			packageProductDependencies = (
@@ -212,6 +324,50 @@
 			productReference = 7289FC8D2E98B84400595EF7 /* LockRunUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		7289FCF02E98DC6A00595EF7 /* ActivityMo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7289FCFE2E98DC6B00595EF7 /* Build configuration list for PBXNativeTarget "ActivityMo" */;
+			buildPhases = (
+				7289FCED2E98DC6A00595EF7 /* Sources */,
+				7289FCEE2E98DC6A00595EF7 /* Frameworks */,
+				7289FCEF2E98DC6A00595EF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				7289FCF52E98DC6B00595EF7 /* ActivityMo */,
+			);
+			name = ActivityMo;
+			packageProductDependencies = (
+			);
+			productName = ActivityMo;
+			productReference = 7289FCF12E98DC6A00595EF7 /* ActivityMo.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		7289FD052E98DC8B00595EF7 /* ActivityRe */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7289FD142E98DC8B00595EF7 /* Build configuration list for PBXNativeTarget "ActivityRe" */;
+			buildPhases = (
+				7289FD022E98DC8B00595EF7 /* Sources */,
+				7289FD032E98DC8B00595EF7 /* Frameworks */,
+				7289FD042E98DC8B00595EF7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				7289FD072E98DC8B00595EF7 /* ActivityRe */,
+			);
+			name = ActivityRe;
+			packageProductDependencies = (
+			);
+			productName = ActivityRe;
+			productReference = 7289FD062E98DC8B00595EF7 /* ActivityRe.appex */;
+			productType = "com.apple.product-type.extensionkit-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -233,6 +389,12 @@
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = 7289FC732E98B84200595EF7;
 					};
+					7289FCF02E98DC6A00595EF7 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					7289FD052E98DC8B00595EF7 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 				};
 			};
 			buildConfigurationList = 7289FC6F2E98B84200595EF7 /* Build configuration list for PBXProject "LockRun" */;
@@ -252,6 +414,8 @@
 				7289FC732E98B84200595EF7 /* LockRun */,
 				7289FC822E98B84400595EF7 /* LockRunTests */,
 				7289FC8C2E98B84400595EF7 /* LockRunUITests */,
+				7289FCF02E98DC6A00595EF7 /* ActivityMo */,
+				7289FD052E98DC8B00595EF7 /* ActivityRe */,
 			);
 		};
 /* End PBXProject section */
@@ -273,6 +437,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		7289FC8B2E98B84400595EF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7289FCEF2E98DC6A00595EF7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7289FD042E98DC8B00595EF7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -307,6 +485,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		7289FCED2E98DC6A00595EF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7289FD022E98DC8B00595EF7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -319,6 +511,16 @@
 			isa = PBXTargetDependency;
 			target = 7289FC732E98B84200595EF7 /* LockRun */;
 			targetProxy = 7289FC8E2E98B84400595EF7 /* PBXContainerItemProxy */;
+		};
+		7289FCFB2E98DC6B00595EF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7289FCF02E98DC6A00595EF7 /* ActivityMo */;
+			targetProxy = 7289FCFA2E98DC6B00595EF7 /* PBXContainerItemProxy */;
+		};
+		7289FD112E98DC8B00595EF7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7289FD052E98DC8B00595EF7 /* ActivityRe */;
+			targetProxy = 7289FD102E98DC8B00595EF7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -449,6 +651,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LockRun/LockRun.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QQN262X7KM;
@@ -486,6 +689,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = LockRun/LockRun.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QQN262X7KM;
@@ -590,6 +794,110 @@
 			};
 			name = Release;
 		};
+		7289FCFF2E98DC6B00595EF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ActivityMo/ActivityMo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ActivityMo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ActivityMo;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.ActivityMo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7289FD002E98DC6B00595EF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ActivityMo/ActivityMo.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ActivityMo/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ActivityMo;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.ActivityMo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7289FD152E98DC8B00595EF7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ActivityRe/ActivityRe.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ActivityRe/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ActivityRe;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.ActivityRe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7289FD162E98DC8B00595EF7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ActivityRe/ActivityRe.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ActivityRe/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ActivityRe;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.ActivityRe;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -625,6 +933,24 @@
 			buildConfigurations = (
 				7289FC9E2E98B84400595EF7 /* Debug */,
 				7289FC9F2E98B84400595EF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7289FCFE2E98DC6B00595EF7 /* Build configuration list for PBXNativeTarget "ActivityMo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7289FCFF2E98DC6B00595EF7 /* Debug */,
+				7289FD002E98DC6B00595EF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7289FD142E98DC8B00595EF7 /* Build configuration list for PBXNativeTarget "ActivityRe" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7289FD152E98DC8B00595EF7 /* Debug */,
+				7289FD162E98DC8B00595EF7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
