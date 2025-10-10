@@ -10,6 +10,9 @@ import SwiftData
 
 @main
 struct LockRunApp: App {
+    
+    @StateObject private var locationManager = LocationManager()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -26,6 +29,7 @@ struct LockRunApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(locationManager)
         }
         .modelContainer(sharedModelContainer)
     }

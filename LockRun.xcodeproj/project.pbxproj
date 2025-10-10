@@ -6,6 +6,14 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7289FCB42E98CA5400595EF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCB02E98CA5400595EF7 /* ContentView.swift */; };
+		7289FCB52E98CA5400595EF7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCB12E98CA5400595EF7 /* Item.swift */; };
+		7289FCB62E98CA5400595EF7 /* LockRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCB22E98CA5400595EF7 /* LockRunApp.swift */; };
+		7289FCB72E98CA5400595EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7289FCAF2E98CA5400595EF7 /* Assets.xcassets */; };
+		7289FCCB2E98CAF600595EF7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCCA2E98CAF600595EF7 /* LocationManager.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		7289FC842E98B84400595EF7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,14 +35,14 @@
 		7289FC742E98B84200595EF7 /* LockRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FC832E98B84400595EF7 /* LockRunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockRunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FC8D2E98B84400595EF7 /* LockRunUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockRunUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7289FCAF2E98CA5400595EF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7289FCB02E98CA5400595EF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7289FCB12E98CA5400595EF7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		7289FCB22E98CA5400595EF7 /* LockRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockRunApp.swift; sourceTree = "<group>"; };
+		7289FCCA2E98CAF600595EF7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		7289FC762E98B84200595EF7 /* LockRun */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LockRun;
-			sourceTree = "<group>";
-		};
 		7289FC862E98B84400595EF7 /* LockRunTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LockRunTests;
@@ -75,7 +83,7 @@
 		7289FC6B2E98B84200595EF7 = {
 			isa = PBXGroup;
 			children = (
-				7289FC762E98B84200595EF7 /* LockRun */,
+				7289FCB32E98CA5400595EF7 /* LockRun */,
 				7289FC862E98B84400595EF7 /* LockRunTests */,
 				7289FC902E98B84400595EF7 /* LockRunUITests */,
 				7289FC752E98B84200595EF7 /* Products */,
@@ -92,6 +100,50 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		7289FCB32E98CA5400595EF7 /* LockRun */ = {
+			isa = PBXGroup;
+			children = (
+				7289FCB82E98CA5900595EF7 /* Resources */,
+				7289FCC82E98CAA900595EF7 /* Sources */,
+				7289FCAF2E98CA5400595EF7 /* Assets.xcassets */,
+				7289FCB02E98CA5400595EF7 /* ContentView.swift */,
+				7289FCB12E98CA5400595EF7 /* Item.swift */,
+			);
+			path = LockRun;
+			sourceTree = "<group>";
+		};
+		7289FCB82E98CA5900595EF7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7289FCC72E98CA8E00595EF7 /* Application */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7289FCC72E98CA8E00595EF7 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7289FCB22E98CA5400595EF7 /* LockRunApp.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		7289FCC82E98CAA900595EF7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				7289FCC92E98CAB200595EF7 /* Util */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		7289FCC92E98CAB200595EF7 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				7289FCCA2E98CAF600595EF7 /* LocationManager.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -106,9 +158,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				7289FC762E98B84200595EF7 /* LockRun */,
 			);
 			name = LockRun;
 			packageProductDependencies = (
@@ -212,6 +261,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7289FCB72E98CA5400595EF7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +286,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7289FCCB2E98CAF600595EF7 /* LocationManager.swift in Sources */,
+				7289FCB42E98CA5400595EF7 /* ContentView.swift in Sources */,
+				7289FCB52E98CA5400595EF7 /* Item.swift in Sources */,
+				7289FCB62E98CA5400595EF7 /* LockRunApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -400,11 +454,15 @@
 				DEVELOPMENT_TEAM = QQN262X7KM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "백그라운드에서도 러닝 거리를 측정하고 목표 달성 여부를 확인하기 위해 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "앱이 실행되지 않을 때에도 달린 거리를 기록하기 위해 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱을 사용하는 동안 달린 거리를 측정하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -412,9 +470,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -428,11 +490,15 @@
 				DEVELOPMENT_TEAM = QQN262X7KM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "백그라운드에서도 러닝 거리를 측정하고 목표 달성 여부를 확인하기 위해 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "앱이 실행되지 않을 때에도 달린 거리를 기록하기 위해 위치 정보가 필요합니다.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱을 사용하는 동안 달린 거리를 측정하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -440,9 +506,13 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
