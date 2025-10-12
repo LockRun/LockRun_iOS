@@ -7,14 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7289FCB42E98CA5400595EF7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCB02E98CA5400595EF7 /* ContentView.swift */; };
-		7289FCB52E98CA5400595EF7 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCB12E98CA5400595EF7 /* Item.swift */; };
+		723F5CFB2E9B75D500E6AA23 /* AppText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5CFA2E9B75D500E6AA23 /* AppText.swift */; };
+		723F5CFD2E9B767B00E6AA23 /* ButtonTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5CFC2E9B767B00E6AA23 /* ButtonTitle.swift */; };
+		723F5D012E9B772E00E6AA23 /* CommonText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5D002E9B772E00E6AA23 /* CommonText.swift */; };
+		723F5D042E9B77A400E6AA23 /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5D032E9B77A400E6AA23 /* Font.swift */; };
+		723F5D072E9B77FF00E6AA23 /* CustomFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5D062E9B77FF00E6AA23 /* CustomFontModifier.swift */; };
+		723F5D0A2E9B79EA00E6AA23 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5D092E9B79EA00E6AA23 /* Image+Extension.swift */; };
+		723F5D0D2E9B7A6600E6AA23 /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5D0C2E9B7A6600E6AA23 /* CommonButton.swift */; };
 		7289FCB62E98CA5400595EF7 /* LockRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCB22E98CA5400595EF7 /* LockRunApp.swift */; };
 		7289FCB72E98CA5400595EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7289FCAF2E98CA5400595EF7 /* Assets.xcassets */; };
 		7289FCCB2E98CAF600595EF7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCCA2E98CAF600595EF7 /* LocationManager.swift */; };
 		7289FCF42E98DC6B00595EF7 /* DeviceActivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7289FCF32E98DC6A00595EF7 /* DeviceActivity.framework */; };
 		7289FCFC2E98DC6B00595EF7 /* ActivityMo.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 7289FCF12E98DC6A00595EF7 /* ActivityMo.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7289FD122E98DC8B00595EF7 /* ActivityRe.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 7289FD062E98DC8B00595EF7 /* ActivityRe.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		7289FD1F2E99408500595EF7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 7289FD1E2E99408500595EF7 /* ComposableArchitecture */; };
+		7289FD212E99409B00595EF7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FD202E99409B00595EF7 /* OnboardingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,18 +81,24 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		723F5CFA2E9B75D500E6AA23 /* AppText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppText.swift; sourceTree = "<group>"; };
+		723F5CFC2E9B767B00E6AA23 /* ButtonTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTitle.swift; sourceTree = "<group>"; };
+		723F5D002E9B772E00E6AA23 /* CommonText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonText.swift; sourceTree = "<group>"; };
+		723F5D032E9B77A400E6AA23 /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		723F5D062E9B77FF00E6AA23 /* CustomFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontModifier.swift; sourceTree = "<group>"; };
+		723F5D092E9B79EA00E6AA23 /* Image+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+Extension.swift"; sourceTree = "<group>"; };
+		723F5D0C2E9B7A6600E6AA23 /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		7289FC742E98B84200595EF7 /* LockRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FC832E98B84400595EF7 /* LockRunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockRunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FC8D2E98B84400595EF7 /* LockRunUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockRunUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FCAF2E98CA5400595EF7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7289FCB02E98CA5400595EF7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		7289FCB12E98CA5400595EF7 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		7289FCB22E98CA5400595EF7 /* LockRunApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockRunApp.swift; sourceTree = "<group>"; };
 		7289FCCA2E98CAF600595EF7 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		7289FCF12E98DC6A00595EF7 /* ActivityMo.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ActivityMo.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FCF32E98DC6A00595EF7 /* DeviceActivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceActivity.framework; path = System/Library/Frameworks/DeviceActivity.framework; sourceTree = SDKROOT; };
 		7289FD062E98DC8B00595EF7 /* ActivityRe.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = ActivityRe.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FD182E98DCBD00595EF7 /* LockRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LockRun.entitlements; sourceTree = "<group>"; };
+		7289FD202E99409B00595EF7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -139,6 +152,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7289FD1F2E99408500595EF7 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,6 +188,64 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		723F5CF92E9B75C300E6AA23 /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				723F5CFA2E9B75D500E6AA23 /* AppText.swift */,
+				723F5CFC2E9B767B00E6AA23 /* ButtonTitle.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		723F5CFE2E9B771200E6AA23 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				723F5D0B2E9B7A5E00E6AA23 /* Button */,
+				723F5CFF2E9B771A00E6AA23 /* Text */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		723F5CFF2E9B771A00E6AA23 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				723F5D002E9B772E00E6AA23 /* CommonText.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
+		723F5D022E9B779800E6AA23 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				723F5D032E9B77A400E6AA23 /* Font.swift */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		723F5D052E9B77E900E6AA23 /* Modifier */ = {
+			isa = PBXGroup;
+			children = (
+				723F5D062E9B77FF00E6AA23 /* CustomFontModifier.swift */,
+			);
+			path = Modifier;
+			sourceTree = "<group>";
+		};
+		723F5D082E9B79D900E6AA23 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				723F5D092E9B79EA00E6AA23 /* Image+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		723F5D0B2E9B7A5E00E6AA23 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				723F5D0C2E9B7A6600E6AA23 /* CommonButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		7289FC6B2E98B84200595EF7 = {
 			isa = PBXGroup;
 			children = (
@@ -205,9 +277,6 @@
 				7289FD182E98DCBD00595EF7 /* LockRun.entitlements */,
 				7289FCB82E98CA5900595EF7 /* Resources */,
 				7289FCC82E98CAA900595EF7 /* Sources */,
-				7289FCAF2E98CA5400595EF7 /* Assets.xcassets */,
-				7289FCB02E98CA5400595EF7 /* ContentView.swift */,
-				7289FCB12E98CA5400595EF7 /* Item.swift */,
 			);
 			path = LockRun;
 			sourceTree = "<group>";
@@ -215,7 +284,9 @@
 		7289FCB82E98CA5900595EF7 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				723F5D022E9B779800E6AA23 /* Font */,
 				7289FCC72E98CA8E00595EF7 /* Application */,
+				7289FCAF2E98CA5400595EF7 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -231,7 +302,11 @@
 		7289FCC82E98CAA900595EF7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				723F5D082E9B79D900E6AA23 /* Extension */,
+				7289FD192E993EC200595EF7 /* Feature */,
+				723F5CFE2E9B771200E6AA23 /* Components */,
 				7289FCC92E98CAB200595EF7 /* Util */,
+				723F5D052E9B77E900E6AA23 /* Modifier */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -239,6 +314,7 @@
 		7289FCC92E98CAB200595EF7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				723F5CF92E9B75C300E6AA23 /* Enum */,
 				7289FCCA2E98CAF600595EF7 /* LocationManager.swift */,
 			);
 			path = Util;
@@ -250,6 +326,22 @@
 				7289FCF32E98DC6A00595EF7 /* DeviceActivity.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7289FD192E993EC200595EF7 /* Feature */ = {
+			isa = PBXGroup;
+			children = (
+				7289FD1C2E993EE700595EF7 /* Onboarding */,
+			);
+			path = Feature;
+			sourceTree = "<group>";
+		};
+		7289FD1C2E993EE700595EF7 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				7289FD202E99409B00595EF7 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -273,6 +365,7 @@
 			);
 			name = LockRun;
 			packageProductDependencies = (
+				7289FD1E2E99408500595EF7 /* ComposableArchitecture */,
 			);
 			productName = LockRun;
 			productReference = 7289FC742E98B84200595EF7 /* LockRun.app */;
@@ -406,6 +499,9 @@
 			);
 			mainGroup = 7289FC6B2E98B84200595EF7;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				7289FD1D2E99408500595EF7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7289FC752E98B84200595EF7 /* Products */;
 			projectDirPath = "";
@@ -465,8 +561,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7289FCCB2E98CAF600595EF7 /* LocationManager.swift in Sources */,
-				7289FCB42E98CA5400595EF7 /* ContentView.swift in Sources */,
-				7289FCB52E98CA5400595EF7 /* Item.swift in Sources */,
+				723F5CFD2E9B767B00E6AA23 /* ButtonTitle.swift in Sources */,
+				723F5D0A2E9B79EA00E6AA23 /* Image+Extension.swift in Sources */,
+				723F5D042E9B77A400E6AA23 /* Font.swift in Sources */,
+				7289FD212E99409B00595EF7 /* OnboardingView.swift in Sources */,
+				723F5D072E9B77FF00E6AA23 /* CustomFontModifier.swift in Sources */,
+				723F5D0D2E9B7A6600E6AA23 /* CommonButton.swift in Sources */,
+				723F5D012E9B772E00E6AA23 /* CommonText.swift in Sources */,
+				723F5CFB2E9B75D500E6AA23 /* AppText.swift in Sources */,
 				7289FCB62E98CA5400595EF7 /* LockRunApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -956,6 +1058,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7289FD1D2E99408500595EF7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.22.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7289FD1E2E99408500595EF7 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7289FD1D2E99408500595EF7 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7289FC6C2E98B84200595EF7 /* Project object */;
 }
