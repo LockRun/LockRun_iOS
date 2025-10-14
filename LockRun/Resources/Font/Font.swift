@@ -31,8 +31,11 @@ extension FontType {
     static let regular12 = FontType
         .system(12,
                 weight: .regular)
-    static let regular14 = FontType
-        .system(14,
+    static let regular15 = FontType
+        .system(15,
+                weight: .regular)
+    static let regular16 = FontType
+        .system(16,
                 weight: .regular)
     static let regular20 = FontType
         .system(20,
@@ -46,6 +49,9 @@ extension FontType {
                 weight: .bold)
     static let bold13 = FontType
         .system(13,
+                weight: .bold)
+    static let bold18 = FontType
+        .system(18,
                 weight: .bold)
     static let semibold24 = FontType
         .system(24,
