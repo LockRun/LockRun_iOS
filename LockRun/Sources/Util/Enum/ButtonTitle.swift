@@ -1,0 +1,18 @@
+//
+//  ButtonTitle.swift
+//  LockRun
+//
+//  Created by 전준영 on 10/12/25.
+//
+
+import Foundation
+
+enum ButtonTitle: String {
+    case start = "락런 시작하기"
+    case permission = "권한 허용"
+    case screenTime = "스크린 타임 권한 허용하기"
+    case walking = "걸음 권한 허용하기"
+    case location = "위치 권한 허용하기"
+    case alert = "알림 권한 허용하기"
+    case camera = "카메라 권한 허용하기"
+}

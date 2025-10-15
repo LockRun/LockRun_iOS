@@ -7,15 +7,14 @@
 
 import SwiftUI
 import SwiftData
+import ComposableArchitecture
 
 @main
 struct LockRunApp: App {
     
-    @StateObject private var locationManager = LocationManager()
-    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+//            Item.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
 
@@ -28,8 +27,9 @@ struct LockRunApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .environmentObject(locationManager)
+            OnboardingView(store: Store(initialState: Onboarding.State()) {
+                Onboarding()
+            })
         }
         .modelContainer(sharedModelContainer)
     }
