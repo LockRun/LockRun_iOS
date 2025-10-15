@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct HomeView: View {
+    
+    @Bindable var store: StoreOf<Home>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello, home!")
     }
 }
 
 #Preview {
-    HomeView()
+    HomeView(store: Store(initialState: Home.State()) {
+        Home()
+    })
 }

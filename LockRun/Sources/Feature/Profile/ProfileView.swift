@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct ProfileView: View {
+    
+    @Bindable var store: StoreOf<Profile>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello, profile!")
     }
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(store: Store(initialState: Profile.State()) {
+        Profile()
+    })
 }

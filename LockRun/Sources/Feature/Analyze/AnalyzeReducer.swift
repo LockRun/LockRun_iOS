@@ -1,5 +1,5 @@
 //
-//  TabbarReducer.swift
+//  AnalyzeReducer.swift
 //  LockRun
 //
 //  Created by 전준영 on 10/15/25.
@@ -9,22 +9,15 @@ import Foundation
 import ComposableArchitecture
 
 @Reducer
-struct Tabbar: Reducer {
+struct Analyze: Reducer {
     
     @ObservableState
     struct State: Equatable {
-        var selectedTab: TabComponent = .home
-        var home: Home.State = .init()
-        var analyze: Analyze.State = .init()
-        var profile: Profile.State = .init()
+        
     }
     
     enum Action: BindableAction {
         case binding(BindingAction<State>)
-        case tabChanged(TabComponent)
-        case home(Home.Action)
-        case analyze(Analyze.Action)
-        case profile(Profile.Action)
     }
     
     var body: some ReducerOf<Self> {
@@ -32,10 +25,6 @@ struct Tabbar: Reducer {
         
         Reduce { state, action in
             switch action {
-            case .tabChanged(let tab):
-                state.selectedTab = tab
-                return .none
-                
             default:
                 return .none
             }
