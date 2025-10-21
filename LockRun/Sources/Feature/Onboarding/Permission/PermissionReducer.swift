@@ -124,14 +124,14 @@ struct Permission: Reducer {
                 
             case .stepGranted(let index):
                 state.steps[index-1] = .granted
-                if index < 5 {
+                if index < 6 {
                     state.currentStep = index + 1
                 }
                 return .none
                 
             case .stepDenied(let index):
                 state.steps[index-1] = .denied
-                if index < 5 {
+                if index < 6 {
                     state.currentStep = index + 1
                 }
                 return .none
@@ -139,6 +139,8 @@ struct Permission: Reducer {
             case .nextStep:
                 if state.currentStep < 6 {
                     state.currentStep += 1
+                } else if state.currentStep == 6 {
+                    UserDefaults.standard.set(true, forKey: "isOnboarded")
                 }
                 return .none
             }

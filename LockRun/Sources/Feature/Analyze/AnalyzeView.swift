@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct AnalyzeView: View {
+    
+    @Bindable var store: StoreOf<Analyze>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text("Hello, analyze!")
     }
 }
 
 #Preview {
-    AnalyzeView()
+    AnalyzeView(store: Store(initialState: Analyze.State()) {
+        Analyze()
+    })
 }

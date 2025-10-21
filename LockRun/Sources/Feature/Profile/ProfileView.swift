@@ -6,13 +6,46 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct ProfileView: View {
+    
+    @Bindable var store: StoreOf<Profile>
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Color(.background)
+                .ignoresSafeArea()
+            
+            VStack {
+                HStack(spacing: 12) {
+                    Image.onboardingImage
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 60,
+                               height: 60)
+                        .clipShape(Circle())
+                        .overlay {
+                            Circle().stroke(Color.gray,
+                                            lineWidth: 3)
+                        }
+                    
+                    CommonText(text: AppText.Settings.nickname.rawValue,
+                               font: .bold18,
+                               color: .white)
+                }
+                
+                Divider()
+                    .background(Color.lightGray)
+                    .frame(height: 1)
+                
+            }
+        }
     }
 }
 
 #Preview {
-    ProfileView()
+    ProfileView(store: Store(initialState: Profile.State()) {
+        Profile()
+    })
 }

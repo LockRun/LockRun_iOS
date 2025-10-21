@@ -12,24 +12,21 @@ import ComposableArchitecture
 @main
 struct LockRunApp: App {
     
-    var sharedModelContainer: ModelContainer = {
-        let schema = Schema([
-//            Item.self,
-        ])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
-        do {
-            return try ModelContainer(for: schema, configurations: [modelConfiguration])
-        } catch {
-            fatalError("Could not create ModelContainer: \(error)")
-        }
-    }()
-
+    var sharedModelContainer = SwiftDataDBManager.shared.container
+    @AppStorage("isOnboarded") private var isOnboarded = false
+    
     var body: some Scene {
+        
         WindowGroup {
-            OnboardingView(store: Store(initialState: Onboarding.State()) {
-                Onboarding()
-            })
+            if isOnboarded {
+                TabbarContainerView(store: Store(initialState: Tabbar.State()) {
+                    Tabbar()
+                })
+            } else {
+                OnboardingView(store: Store(initialState: Onboarding.State()) {
+                    Onboarding()
+                })
+            }
         }
         .modelContainer(sharedModelContainer)
     }

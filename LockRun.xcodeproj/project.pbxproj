@@ -31,7 +31,25 @@
 		72E9AE3D2E9F6B70003DB4F6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE3C2E9F6B70003DB4F6 /* HomeView.swift */; };
 		72E9AE3F2E9F6B85003DB4F6 /* AnalyzeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE3E2E9F6B85003DB4F6 /* AnalyzeView.swift */; };
 		72E9AE412E9F6B8D003DB4F6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE402E9F6B8D003DB4F6 /* ProfileView.swift */; };
-		72E9AE432E9F6C21003DB4F6 /* TabbarReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE422E9F6C21003DB4F6 /* TabbarReducer.swift */; };
+		72E9AE6D2E9F6FB1003DB4F6 /* TabbarReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE6C2E9F6FB1003DB4F6 /* TabbarReducer.swift */; };
+		72E9AE6F2E9F7020003DB4F6 /* TabbarComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE6E2E9F7020003DB4F6 /* TabbarComponent.swift */; };
+		72E9AE722E9F7A0F003DB4F6 /* TabbarContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE712E9F7A0F003DB4F6 /* TabbarContainerView.swift */; };
+		72E9AE742E9F7B50003DB4F6 /* HomeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE732E9F7B50003DB4F6 /* HomeReducer.swift */; };
+		72E9AE762E9F7B94003DB4F6 /* AnalyzeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE752E9F7B94003DB4F6 /* AnalyzeReducer.swift */; };
+		72E9AE782E9F7BAB003DB4F6 /* ProfileReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE772E9F7BAB003DB4F6 /* ProfileReducer.swift */; };
+		72E9AE7A2E9F833B003DB4F6 /* PermissionStatusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE792E9F833B003DB4F6 /* PermissionStatusData.swift */; };
+		72E9AE7C2E9F838A003DB4F6 /* SwiftDataDBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE7B2E9F838A003DB4F6 /* SwiftDataDBManager.swift */; };
+		72E9AE7F2EA0DC26003DB4F6 /* RunningGoalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE7E2EA0DC26003DB4F6 /* RunningGoalCard.swift */; };
+		72E9AEA32EA2104D003DB4F6 /* PlanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AEA22EA2104D003DB4F6 /* PlanningView.swift */; };
+		72E9AEA52EA21072003DB4F6 /* PlanningReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AEA42EA21072003DB4F6 /* PlanningReducer.swift */; };
+		72E9AEA72EA3C9DB003DB4F6 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AEA62EA3C9DB003DB4F6 /* AppGroup.swift */; };
+		72E9AEA92EA3CA6C003DB4F6 /* StoredBlockSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AEA82EA3CA6C003DB4F6 /* StoredBlockSelection.swift */; };
+		72E9AEAB2EA3D0AA003DB4F6 /* DeviceActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AEAA2EA3D0AA003DB4F6 /* DeviceActivityManager.swift */; };
+		72E9AEAE2EA3E50C003DB4F6 /* StoredBlockSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AEA82EA3CA6C003DB4F6 /* StoredBlockSelection.swift */; };
+		72E9AEAF2EA3E58B003DB4F6 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AEA62EA3C9DB003DB4F6 /* AppGroup.swift */; };
+		72E9AF4C2EA5CCE6003DB4F6 /* LocationClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AF4B2EA5CCE6003DB4F6 /* LocationClient.swift */; };
+		72E9AF4E2EA5D45C003DB4F6 /* WeatherClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AF4D2EA5D45C003DB4F6 /* WeatherClient.swift */; };
+		72E9AF512EA6172A003DB4F6 /* RunningGoalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AF502EA6172A003DB4F6 /* RunningGoalData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -118,7 +136,23 @@
 		72E9AE3C2E9F6B70003DB4F6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		72E9AE3E2E9F6B85003DB4F6 /* AnalyzeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeView.swift; sourceTree = "<group>"; };
 		72E9AE402E9F6B8D003DB4F6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
-		72E9AE422E9F6C21003DB4F6 /* TabbarReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarReducer.swift; sourceTree = "<group>"; };
+		72E9AE6C2E9F6FB1003DB4F6 /* TabbarReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarReducer.swift; sourceTree = "<group>"; };
+		72E9AE6E2E9F7020003DB4F6 /* TabbarComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarComponent.swift; sourceTree = "<group>"; };
+		72E9AE712E9F7A0F003DB4F6 /* TabbarContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarContainerView.swift; sourceTree = "<group>"; };
+		72E9AE732E9F7B50003DB4F6 /* HomeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReducer.swift; sourceTree = "<group>"; };
+		72E9AE752E9F7B94003DB4F6 /* AnalyzeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeReducer.swift; sourceTree = "<group>"; };
+		72E9AE772E9F7BAB003DB4F6 /* ProfileReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileReducer.swift; sourceTree = "<group>"; };
+		72E9AE792E9F833B003DB4F6 /* PermissionStatusData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionStatusData.swift; sourceTree = "<group>"; };
+		72E9AE7B2E9F838A003DB4F6 /* SwiftDataDBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftDataDBManager.swift; sourceTree = "<group>"; };
+		72E9AE7E2EA0DC26003DB4F6 /* RunningGoalCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningGoalCard.swift; sourceTree = "<group>"; };
+		72E9AEA22EA2104D003DB4F6 /* PlanningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningView.swift; sourceTree = "<group>"; };
+		72E9AEA42EA21072003DB4F6 /* PlanningReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanningReducer.swift; sourceTree = "<group>"; };
+		72E9AEA62EA3C9DB003DB4F6 /* AppGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroup.swift; sourceTree = "<group>"; };
+		72E9AEA82EA3CA6C003DB4F6 /* StoredBlockSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredBlockSelection.swift; sourceTree = "<group>"; };
+		72E9AEAA2EA3D0AA003DB4F6 /* DeviceActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityManager.swift; sourceTree = "<group>"; };
+		72E9AF4B2EA5CCE6003DB4F6 /* LocationClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationClient.swift; sourceTree = "<group>"; };
+		72E9AF4D2EA5D45C003DB4F6 /* WeatherClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherClient.swift; sourceTree = "<group>"; };
+		72E9AF502EA6172A003DB4F6 /* RunningGoalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningGoalData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -136,6 +170,13 @@
 			);
 			target = 7289FD052E98DC8B00595EF7 /* ActivityRe */;
 		};
+		72E9AEAD2EA3E4C5003DB4F6 /* Exceptions for "ActivityMo" folder in "LockRun" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				DeviceActivityMonitorExtension.swift,
+			);
+			target = 7289FC732E98B84200595EF7 /* LockRun */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -152,6 +193,7 @@
 		7289FCF52E98DC6B00595EF7 /* ActivityMo */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				72E9AEAD2EA3E4C5003DB4F6 /* Exceptions for "ActivityMo" folder in "LockRun" target */,
 				7289FCFD2E98DC6B00595EF7 /* Exceptions for "ActivityMo" folder in "ActivityMo" target */,
 			);
 			path = ActivityMo;
@@ -213,6 +255,8 @@
 			children = (
 				723F5CFA2E9B75D500E6AA23 /* AppText.swift */,
 				723F5CFC2E9B767B00E6AA23 /* ButtonTitle.swift */,
+				72E9AE6E2E9F7020003DB4F6 /* TabbarComponent.swift */,
+				72E9AEA62EA3C9DB003DB4F6 /* AppGroup.swift */,
 			);
 			path = Enum;
 			sourceTree = "<group>";
@@ -220,6 +264,7 @@
 		723F5CFE2E9B771200E6AA23 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				72DDBC1A2EA73A710020E9C7 /* View */,
 				723F5D0B2E9B7A5E00E6AA23 /* Button */,
 				723F5CFF2E9B771A00E6AA23 /* Text */,
 			);
@@ -340,6 +385,7 @@
 		7289FCC82E98CAA900595EF7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				72E9AF4A2EA5CCA0003DB4F6 /* Services */,
 				723F5D082E9B79D900E6AA23 /* Extension */,
 				7289FD192E993EC200595EF7 /* Feature */,
 				723F5CFE2E9B771200E6AA23 /* Components */,
@@ -352,8 +398,11 @@
 		7289FCC92E98CAB200595EF7 /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				72E9AF4F2EA61712003DB4F6 /* DB */,
 				723F5CF92E9B75C300E6AA23 /* Enum */,
 				7289FCCA2E98CAF600595EF7 /* LocationManager.swift */,
+				72E9AEA82EA3CA6C003DB4F6 /* StoredBlockSelection.swift */,
+				72E9AEAA2EA3D0AA003DB4F6 /* DeviceActivityManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -369,11 +418,11 @@
 		7289FD192E993EC200595EF7 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
-				72E9AE3B2E9F6B5A003DB4F6 /* Profile */,
-				72E9AE3A2E9F6B44003DB4F6 /* Analyze */,
-				72E9AE392E9F6B3E003DB4F6 /* Home */,
 				72E9AE362E9F6A39003DB4F6 /* Tabbar */,
 				7289FD1C2E993EE700595EF7 /* Onboarding */,
+				72E9AE392E9F6B3E003DB4F6 /* Home */,
+				72E9AE3A2E9F6B44003DB4F6 /* Analyze */,
+				72E9AE3B2E9F6B5A003DB4F6 /* Profile */,
 			);
 			path = Feature;
 			sourceTree = "<group>";
@@ -389,11 +438,19 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		72DDBC1A2EA73A710020E9C7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		72E9AE362E9F6A39003DB4F6 /* Tabbar */ = {
 			isa = PBXGroup;
 			children = (
-				72E9AE372E9F6A4C003DB4F6 /* CustomTabbar.swift */,
-				72E9AE422E9F6C21003DB4F6 /* TabbarReducer.swift */,
+				72E9AE712E9F7A0F003DB4F6 /* TabbarContainerView.swift */,
+				72E9AE6C2E9F6FB1003DB4F6 /* TabbarReducer.swift */,
+				72E9AE702E9F79F9003DB4F6 /* Component */,
 			);
 			path = Tabbar;
 			sourceTree = "<group>";
@@ -402,6 +459,9 @@
 			isa = PBXGroup;
 			children = (
 				72E9AE3C2E9F6B70003DB4F6 /* HomeView.swift */,
+				72E9AE732E9F7B50003DB4F6 /* HomeReducer.swift */,
+				72E9AEA12EA21021003DB4F6 /* Planning */,
+				72E9AE7D2EA0DC19003DB4F6 /* Component */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -410,6 +470,7 @@
 			isa = PBXGroup;
 			children = (
 				72E9AE3E2E9F6B85003DB4F6 /* AnalyzeView.swift */,
+				72E9AE752E9F7B94003DB4F6 /* AnalyzeReducer.swift */,
 			);
 			path = Analyze;
 			sourceTree = "<group>";
@@ -418,8 +479,53 @@
 			isa = PBXGroup;
 			children = (
 				72E9AE402E9F6B8D003DB4F6 /* ProfileView.swift */,
+				72E9AE772E9F7BAB003DB4F6 /* ProfileReducer.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		72E9AE702E9F79F9003DB4F6 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				72E9AE372E9F6A4C003DB4F6 /* CustomTabbar.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		72E9AE7D2EA0DC19003DB4F6 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				72E9AE7E2EA0DC26003DB4F6 /* RunningGoalCard.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		72E9AEA12EA21021003DB4F6 /* Planning */ = {
+			isa = PBXGroup;
+			children = (
+				72E9AEA22EA2104D003DB4F6 /* PlanningView.swift */,
+				72E9AEA42EA21072003DB4F6 /* PlanningReducer.swift */,
+			);
+			path = Planning;
+			sourceTree = "<group>";
+		};
+		72E9AF4A2EA5CCA0003DB4F6 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				72E9AF4B2EA5CCE6003DB4F6 /* LocationClient.swift */,
+				72E9AF4D2EA5D45C003DB4F6 /* WeatherClient.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		72E9AF4F2EA61712003DB4F6 /* DB */ = {
+			isa = PBXGroup;
+			children = (
+				72E9AE7B2E9F838A003DB4F6 /* SwiftDataDBManager.swift */,
+				72E9AE792E9F833B003DB4F6 /* PermissionStatusData.swift */,
+				72E9AF502EA6172A003DB4F6 /* RunningGoalData.swift */,
+			);
+			path = DB;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -638,11 +744,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E9AEAB2EA3D0AA003DB4F6 /* DeviceActivityManager.swift in Sources */,
 				7289FCCB2E98CAF600595EF7 /* LocationManager.swift in Sources */,
+				72E9AF4C2EA5CCE6003DB4F6 /* LocationClient.swift in Sources */,
 				723F5CFD2E9B767B00E6AA23 /* ButtonTitle.swift in Sources */,
+				72E9AEA32EA2104D003DB4F6 /* PlanningView.swift in Sources */,
+				72E9AEA52EA21072003DB4F6 /* PlanningReducer.swift in Sources */,
+				72E9AE7F2EA0DC26003DB4F6 /* RunningGoalCard.swift in Sources */,
 				723F5D0A2E9B79EA00E6AA23 /* Image+Extension.swift in Sources */,
 				723F5D192E9CBF9300E6AA23 /* PermissionReducer.swift in Sources */,
 				72E9AE382E9F6A4C003DB4F6 /* CustomTabbar.swift in Sources */,
+				72E9AF512EA6172A003DB4F6 /* RunningGoalData.swift in Sources */,
+				72E9AE762E9F7B94003DB4F6 /* AnalyzeReducer.swift in Sources */,
+				72E9AE7A2E9F833B003DB4F6 /* PermissionStatusData.swift in Sources */,
+				72E9AE742E9F7B50003DB4F6 /* HomeReducer.swift in Sources */,
 				72E9AE3D2E9F6B70003DB4F6 /* HomeView.swift in Sources */,
 				723F5D142E9B8A2F00E6AA23 /* PermissionView.swift in Sources */,
 				723F5D042E9B77A400E6AA23 /* Font.swift in Sources */,
@@ -650,13 +765,20 @@
 				723F5D0F2E9B828E00E6AA23 /* OnboardingReducer.swift in Sources */,
 				723F5D172E9BD2C700E6AA23 /* PermissionExplainView.swift in Sources */,
 				723F5D1B2E9D2AC900E6AA23 /* CustomNavigationBarModifier.swift in Sources */,
+				72E9AE7C2E9F838A003DB4F6 /* SwiftDataDBManager.swift in Sources */,
 				723F5D072E9B77FF00E6AA23 /* CustomFontModifier.swift in Sources */,
 				72E9AE3F2E9F6B85003DB4F6 /* AnalyzeView.swift in Sources */,
 				723F5D0D2E9B7A6600E6AA23 /* CommonButton.swift in Sources */,
 				723F5D012E9B772E00E6AA23 /* CommonText.swift in Sources */,
-				72E9AE432E9F6C21003DB4F6 /* TabbarReducer.swift in Sources */,
+				72E9AEA92EA3CA6C003DB4F6 /* StoredBlockSelection.swift in Sources */,
+				72E9AEA72EA3C9DB003DB4F6 /* AppGroup.swift in Sources */,
+				72E9AE722E9F7A0F003DB4F6 /* TabbarContainerView.swift in Sources */,
+				72E9AF4E2EA5D45C003DB4F6 /* WeatherClient.swift in Sources */,
+				72E9AE782E9F7BAB003DB4F6 /* ProfileReducer.swift in Sources */,
+				72E9AE6D2E9F6FB1003DB4F6 /* TabbarReducer.swift in Sources */,
 				72E9AE412E9F6B8D003DB4F6 /* ProfileView.swift in Sources */,
 				723F5CFB2E9B75D500E6AA23 /* AppText.swift in Sources */,
+				72E9AE6F2E9F7020003DB4F6 /* TabbarComponent.swift in Sources */,
 				7289FCB62E98CA5400595EF7 /* LockRunApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -679,6 +801,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72E9AEAF2EA3E58B003DB4F6 /* AppGroup.swift in Sources */,
+				72E9AEAE2EA3E50C003DB4F6 /* StoredBlockSelection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
