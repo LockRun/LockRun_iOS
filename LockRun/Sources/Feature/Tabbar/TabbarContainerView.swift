@@ -19,8 +19,11 @@ struct TabbarContainerView: View {
             
             switch store.selectedTab {
             case .home:
-                HomeView(store: store.scope(state: \.home,
-                                            action: \.home))
+                NavigationStack{
+                    HomeView(store: store.scope(state: \.home,
+                                                action: \.home))
+                    .toolbar(.hidden, for: .navigationBar)
+                }
                 
             case .analyze:
                 AnalyzeView(store: store.scope(state: \.analyze,
@@ -34,7 +37,9 @@ struct TabbarContainerView: View {
             VStack{
                 Spacer()
                 
-                CustomTabbar(store: store)
+                if !store.isTabBarHidden {
+                    CustomTabbar(store: store)
+                }
             }
         }
     }

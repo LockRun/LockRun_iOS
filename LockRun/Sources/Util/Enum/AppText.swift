@@ -28,4 +28,8 @@ enum AppText {
         case cameraPermission = "카메라 허용(선택)"
         case subCamera = "인증샷을 위해 필요해요."
     }
+    
+    enum Settings: String {
+        case nickname = "닉네임을 설정해주세요"
+    }
 }
