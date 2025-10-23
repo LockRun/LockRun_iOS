@@ -15,4 +15,7 @@ enum ButtonTitle: String {
     case location = "위치 권한 허용하기"
     case alert = "알림 권한 허용하기"
     case camera = "카메라 권한 허용하기"
+    case calendar = "내 기록 달력 보기"
+    case running = "내가 뛴 지도 보기"
+    case complete = "완료"
 }

@@ -22,36 +22,46 @@ struct CommonButton: View {
     var isEnabled: Bool = true
     var hasBorder: Bool = false
     var hasInternalPadding: Bool = true
+    var spacing: CGFloat = 8
+    var alignLeft: Bool = false
+    var isIconOnly: Bool = false
+    var haptic: Bool = false
     var action: () -> Void
     
     var body: some View {
         Button(action: {
             if isEnabled {
+                if haptic {
+                    let generator = UIImpactFeedbackGenerator(style: .light)
+                    generator.impactOccurred()
+                }
                 action()
             }
         }) {
-            HStack(spacing: 8) {
+            HStack(spacing: isIconOnly ? 0 : spacing) {
                 if let icon = icon {
                     icon
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: 20, height: 20)
+                        .frame(width: isIconOnly ? 16 : 20,
+                               height: isIconOnly ? 16 : 20)
                         .foregroundStyle(symbolColor ?? .primary)
                 }
-                if let text = text {
+                if let text = text, !isIconOnly {
                     Text(text.rawValue)
                         .customFont(font ?? .headline)
                         .foregroundStyle(textColor.opacity(0.85))
                 }
+                if alignLeft && !isIconOnly { Spacer() }
             }
-            .padding(hasInternalPadding ? 12 : 0)
-            .applyFrame(minWidth: minWidth, height: height)
-            // isEnabled에 따라 배경색: 비활성일 때 disabledBackgroundColor가 nil이면 원래 색 유지
-            .background(
-                (isEnabled)
-                ? backgroundColor
-                : (disabledBackgroundColor ?? backgroundColor)
+            .padding(isIconOnly ? 6 : (hasInternalPadding ? 12 : 0))
+            .frame(
+                minWidth: isIconOnly ? nil : minWidth,
+                maxWidth: isIconOnly ? nil : .infinity,
+                minHeight: isIconOnly ? nil : height,
+                maxHeight: isIconOnly ? nil : height
             )
+            .background(isEnabled ? backgroundColor : (disabledBackgroundColor ?? backgroundColor))
             .cornerRadius(cornerRadius)
             .overlay(
                 RoundedRectangle(cornerRadius: cornerRadius)

@@ -27,6 +27,19 @@
 		7289FD122E98DC8B00595EF7 /* ActivityRe.appex in Embed ExtensionKit Extensions */ = {isa = PBXBuildFile; fileRef = 7289FD062E98DC8B00595EF7 /* ActivityRe.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7289FD1F2E99408500595EF7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 7289FD1E2E99408500595EF7 /* ComposableArchitecture */; };
 		7289FD212E99409B00595EF7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FD202E99409B00595EF7 /* OnboardingView.swift */; };
+		72D0D8712EA9F581000F155C /* CalendarRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0D8702EA9F581000F155C /* CalendarRecordView.swift */; };
+		72DDBC312EA73CD10020E9C7 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC302EA73CD10020E9C7 /* CustomDivider.swift */; };
+		72DDBC332EA8A04B0020E9C7 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC322EA8A04B0020E9C7 /* DateManager.swift */; };
+		72DDBC362EA8A2BE0020E9C7 /* CalendarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC352EA8A2BE0020E9C7 /* CalendarMainView.swift */; };
+		72DDBC382EA8A2D80020E9C7 /* CalendarReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC372EA8A2D80020E9C7 /* CalendarReducer.swift */; };
+		72DDBC3B2EA8A7720020E9C7 /* WeekdayHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC3A2EA8A7720020E9C7 /* WeekdayHeaderView.swift */; };
+		72DDBC3D2EA8B1CF0020E9C7 /* DatesGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC3C2EA8B1CF0020E9C7 /* DatesGridView.swift */; };
+		72DDBC4D2EA920C80020E9C7 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC4C2EA920C80020E9C7 /* HeaderView.swift */; };
+		72DDBC4F2EA923E20020E9C7 /* CalendarDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC4E2EA923E20020E9C7 /* CalendarDetailView.swift */; };
+		72DDBC512EA92C350020E9C7 /* YearMonthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC502EA92C350020E9C7 /* YearMonthHeaderView.swift */; };
+		72DDBC532EA92E1E0020E9C7 /* DateChangeReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC522EA92E1E0020E9C7 /* DateChangeReducer.swift */; };
+		72DDBC552EA930160020E9C7 /* DateChangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC542EA930160020E9C7 /* DateChangeView.swift */; };
+		72DDBC572EA934320020E9C7 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC562EA934320020E9C7 /* CalendarView.swift */; };
 		72E9AE382E9F6A4C003DB4F6 /* CustomTabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE372E9F6A4C003DB4F6 /* CustomTabbar.swift */; };
 		72E9AE3D2E9F6B70003DB4F6 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE3C2E9F6B70003DB4F6 /* HomeView.swift */; };
 		72E9AE3F2E9F6B85003DB4F6 /* AnalyzeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AE3E2E9F6B85003DB4F6 /* AnalyzeView.swift */; };
@@ -132,6 +145,19 @@
 		7289FD062E98DC8B00595EF7 /* ActivityRe.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.extensionkit-extension"; includeInIndex = 0; path = ActivityRe.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FD182E98DCBD00595EF7 /* LockRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LockRun.entitlements; sourceTree = "<group>"; };
 		7289FD202E99409B00595EF7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		72D0D8702EA9F581000F155C /* CalendarRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRecordView.swift; sourceTree = "<group>"; };
+		72DDBC302EA73CD10020E9C7 /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
+		72DDBC322EA8A04B0020E9C7 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
+		72DDBC352EA8A2BE0020E9C7 /* CalendarMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMainView.swift; sourceTree = "<group>"; };
+		72DDBC372EA8A2D80020E9C7 /* CalendarReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarReducer.swift; sourceTree = "<group>"; };
+		72DDBC3A2EA8A7720020E9C7 /* WeekdayHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekdayHeaderView.swift; sourceTree = "<group>"; };
+		72DDBC3C2EA8B1CF0020E9C7 /* DatesGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesGridView.swift; sourceTree = "<group>"; };
+		72DDBC4C2EA920C80020E9C7 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		72DDBC4E2EA923E20020E9C7 /* CalendarDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarDetailView.swift; sourceTree = "<group>"; };
+		72DDBC502EA92C350020E9C7 /* YearMonthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YearMonthHeaderView.swift; sourceTree = "<group>"; };
+		72DDBC522EA92E1E0020E9C7 /* DateChangeReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateChangeReducer.swift; sourceTree = "<group>"; };
+		72DDBC542EA930160020E9C7 /* DateChangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateChangeView.swift; sourceTree = "<group>"; };
+		72DDBC562EA934320020E9C7 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		72E9AE372E9F6A4C003DB4F6 /* CustomTabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabbar.swift; sourceTree = "<group>"; };
 		72E9AE3C2E9F6B70003DB4F6 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		72E9AE3E2E9F6B85003DB4F6 /* AnalyzeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyzeView.swift; sourceTree = "<group>"; };
@@ -403,6 +429,7 @@
 				7289FCCA2E98CAF600595EF7 /* LocationManager.swift */,
 				72E9AEA82EA3CA6C003DB4F6 /* StoredBlockSelection.swift */,
 				72E9AEAA2EA3D0AA003DB4F6 /* DeviceActivityManager.swift */,
+				72DDBC322EA8A04B0020E9C7 /* DateManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -441,8 +468,35 @@
 		72DDBC1A2EA73A710020E9C7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				72DDBC302EA73CD10020E9C7 /* CustomDivider.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		72DDBC342EA8A2200020E9C7 /* CalendarView */ = {
+			isa = PBXGroup;
+			children = (
+				72DDBC352EA8A2BE0020E9C7 /* CalendarMainView.swift */,
+				72DDBC372EA8A2D80020E9C7 /* CalendarReducer.swift */,
+				72DDBC522EA92E1E0020E9C7 /* DateChangeReducer.swift */,
+				72DDBC392EA8A7640020E9C7 /* Component */,
+			);
+			path = CalendarView;
+			sourceTree = "<group>";
+		};
+		72DDBC392EA8A7640020E9C7 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				72DDBC4C2EA920C80020E9C7 /* HeaderView.swift */,
+				72DDBC3A2EA8A7720020E9C7 /* WeekdayHeaderView.swift */,
+				72DDBC3C2EA8B1CF0020E9C7 /* DatesGridView.swift */,
+				72DDBC4E2EA923E20020E9C7 /* CalendarDetailView.swift */,
+				72DDBC502EA92C350020E9C7 /* YearMonthHeaderView.swift */,
+				72DDBC542EA930160020E9C7 /* DateChangeView.swift */,
+				72DDBC562EA934320020E9C7 /* CalendarView.swift */,
+				72D0D8702EA9F581000F155C /* CalendarRecordView.swift */,
+			);
+			path = Component;
 			sourceTree = "<group>";
 		};
 		72E9AE362E9F6A39003DB4F6 /* Tabbar */ = {
@@ -480,6 +534,7 @@
 			children = (
 				72E9AE402E9F6B8D003DB4F6 /* ProfileView.swift */,
 				72E9AE772E9F7BAB003DB4F6 /* ProfileReducer.swift */,
+				72DDBC342EA8A2200020E9C7 /* CalendarView */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -744,26 +799,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72DDBC3B2EA8A7720020E9C7 /* WeekdayHeaderView.swift in Sources */,
+				72DDBC312EA73CD10020E9C7 /* CustomDivider.swift in Sources */,
+				72DDBC4F2EA923E20020E9C7 /* CalendarDetailView.swift in Sources */,
 				72E9AEAB2EA3D0AA003DB4F6 /* DeviceActivityManager.swift in Sources */,
 				7289FCCB2E98CAF600595EF7 /* LocationManager.swift in Sources */,
 				72E9AF4C2EA5CCE6003DB4F6 /* LocationClient.swift in Sources */,
 				723F5CFD2E9B767B00E6AA23 /* ButtonTitle.swift in Sources */,
+				72D0D8712EA9F581000F155C /* CalendarRecordView.swift in Sources */,
 				72E9AEA32EA2104D003DB4F6 /* PlanningView.swift in Sources */,
+				72DDBC4D2EA920C80020E9C7 /* HeaderView.swift in Sources */,
 				72E9AEA52EA21072003DB4F6 /* PlanningReducer.swift in Sources */,
 				72E9AE7F2EA0DC26003DB4F6 /* RunningGoalCard.swift in Sources */,
 				723F5D0A2E9B79EA00E6AA23 /* Image+Extension.swift in Sources */,
 				723F5D192E9CBF9300E6AA23 /* PermissionReducer.swift in Sources */,
+				72DDBC362EA8A2BE0020E9C7 /* CalendarMainView.swift in Sources */,
+				72DDBC382EA8A2D80020E9C7 /* CalendarReducer.swift in Sources */,
+				72DDBC332EA8A04B0020E9C7 /* DateManager.swift in Sources */,
 				72E9AE382E9F6A4C003DB4F6 /* CustomTabbar.swift in Sources */,
 				72E9AF512EA6172A003DB4F6 /* RunningGoalData.swift in Sources */,
 				72E9AE762E9F7B94003DB4F6 /* AnalyzeReducer.swift in Sources */,
 				72E9AE7A2E9F833B003DB4F6 /* PermissionStatusData.swift in Sources */,
 				72E9AE742E9F7B50003DB4F6 /* HomeReducer.swift in Sources */,
+				72DDBC532EA92E1E0020E9C7 /* DateChangeReducer.swift in Sources */,
 				72E9AE3D2E9F6B70003DB4F6 /* HomeView.swift in Sources */,
+				72DDBC552EA930160020E9C7 /* DateChangeView.swift in Sources */,
 				723F5D142E9B8A2F00E6AA23 /* PermissionView.swift in Sources */,
 				723F5D042E9B77A400E6AA23 /* Font.swift in Sources */,
 				7289FD212E99409B00595EF7 /* OnboardingView.swift in Sources */,
 				723F5D0F2E9B828E00E6AA23 /* OnboardingReducer.swift in Sources */,
 				723F5D172E9BD2C700E6AA23 /* PermissionExplainView.swift in Sources */,
+				72DDBC512EA92C350020E9C7 /* YearMonthHeaderView.swift in Sources */,
 				723F5D1B2E9D2AC900E6AA23 /* CustomNavigationBarModifier.swift in Sources */,
 				72E9AE7C2E9F838A003DB4F6 /* SwiftDataDBManager.swift in Sources */,
 				723F5D072E9B77FF00E6AA23 /* CustomFontModifier.swift in Sources */,
@@ -772,9 +838,11 @@
 				723F5D012E9B772E00E6AA23 /* CommonText.swift in Sources */,
 				72E9AEA92EA3CA6C003DB4F6 /* StoredBlockSelection.swift in Sources */,
 				72E9AEA72EA3C9DB003DB4F6 /* AppGroup.swift in Sources */,
+				72DDBC3D2EA8B1CF0020E9C7 /* DatesGridView.swift in Sources */,
 				72E9AE722E9F7A0F003DB4F6 /* TabbarContainerView.swift in Sources */,
 				72E9AF4E2EA5D45C003DB4F6 /* WeatherClient.swift in Sources */,
 				72E9AE782E9F7BAB003DB4F6 /* ProfileReducer.swift in Sources */,
+				72DDBC572EA934320020E9C7 /* CalendarView.swift in Sources */,
 				72E9AE6D2E9F6FB1003DB4F6 /* TabbarReducer.swift in Sources */,
 				72E9AE412E9F6B8D003DB4F6 /* ProfileView.swift in Sources */,
 				723F5CFB2E9B75D500E6AA23 /* AppText.swift in Sources */,

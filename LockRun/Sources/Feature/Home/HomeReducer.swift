@@ -107,7 +107,7 @@ struct Home: Reducer {
                 state.conditionSymbol = s.sfSymbolName
                 return .none
                 
-            case .weatherResponse(.failure(let error)):
+            case .weatherResponse(.failure(_)):
                 state.isLoadingWeather = false
                 return .none
                 
