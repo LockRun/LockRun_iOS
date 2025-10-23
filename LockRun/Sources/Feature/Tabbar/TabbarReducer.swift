@@ -50,6 +50,10 @@ struct Tabbar: Reducer {
                 state.isTabBarHidden = hidden
                 return .none
                 
+            case .profile(.notifyTabbarHide(let hidden)):
+                state.isTabBarHidden = hidden
+                return .none
+                
             default:
                 return .none
             }

@@ -30,8 +30,11 @@ struct TabbarContainerView: View {
                                                action: \.analyze))
                 
             case .profile:
-                ProfileView(store: store.scope(state: \.profile,
-                                               action: \.profile))
+                NavigationStack{
+                    ProfileView(store: store.scope(state: \.profile,
+                                                   action: \.profile))
+                    .toolbar(.hidden, for: .navigationBar)
+                }
             }
             
             VStack{
