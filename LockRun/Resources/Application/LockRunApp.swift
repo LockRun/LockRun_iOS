@@ -18,14 +18,23 @@ struct LockRunApp: App {
     var body: some Scene {
         
         WindowGroup {
-            if isOnboarded {
-                TabbarContainerView(store: Store(initialState: Tabbar.State()) {
-                    Tabbar()
-                })
-            } else {
-                OnboardingView(store: Store(initialState: Onboarding.State()) {
-                    Onboarding()
-                })
+            Group {
+                if isOnboarded {
+                    TabbarContainerView(store: Store(initialState: Tabbar.State()) {
+                        Tabbar()
+                    })
+                    
+                } else {
+                    OnboardingView(store: Store(initialState: Onboarding.State()) {
+                        Onboarding()
+                    })
+                }
+            }
+            .onOpenURL { url in
+                print("딥링크 들어옴: \(url)")
+                if url.scheme == "lockrun", url.host == "running-stats" {
+                    // TODO: 러닝 기록 화면으로 이동
+                }
             }
         }
         .modelContainer(sharedModelContainer)

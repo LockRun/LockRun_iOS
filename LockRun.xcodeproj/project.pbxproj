@@ -28,6 +28,10 @@
 		7289FD1F2E99408500595EF7 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 7289FD1E2E99408500595EF7 /* ComposableArchitecture */; };
 		7289FD212E99409B00595EF7 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FD202E99409B00595EF7 /* OnboardingView.swift */; };
 		72D0D8712EA9F581000F155C /* CalendarRecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0D8702EA9F581000F155C /* CalendarRecordView.swift */; };
+		72D0D88D2EAB355F000F155C /* ManagedSettings.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D0D88C2EAB355E000F155C /* ManagedSettings.framework */; };
+		72D0D88F2EAB355F000F155C /* ManagedSettingsUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72D0D88E2EAB355F000F155C /* ManagedSettingsUI.framework */; };
+		72D0D8972EAB355F000F155C /* ShieldConfiguration.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 72D0D88B2EAB355E000F155C /* ShieldConfiguration.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		72D0D89E2EAB4F8B000F155C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7289FCAF2E98CA5400595EF7 /* Assets.xcassets */; };
 		72DDBC312EA73CD10020E9C7 /* CustomDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC302EA73CD10020E9C7 /* CustomDivider.swift */; };
 		72DDBC332EA8A04B0020E9C7 /* DateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC322EA8A04B0020E9C7 /* DateManager.swift */; };
 		72DDBC362EA8A2BE0020E9C7 /* CalendarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72DDBC352EA8A2BE0020E9C7 /* CalendarMainView.swift */; };
@@ -94,6 +98,13 @@
 			remoteGlobalIDString = 7289FD052E98DC8B00595EF7;
 			remoteInfo = ActivityRe;
 		};
+		72D0D8952EAB355F000F155C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7289FC6C2E98B84200595EF7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72D0D88A2EAB355E000F155C;
+			remoteInfo = ShieldConfiguration;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -103,6 +114,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
+				72D0D8972EAB355F000F155C /* ShieldConfiguration.appex in Embed Foundation Extensions */,
 				7289FCFC2E98DC6B00595EF7 /* ActivityMo.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
@@ -146,6 +158,10 @@
 		7289FD182E98DCBD00595EF7 /* LockRun.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = LockRun.entitlements; sourceTree = "<group>"; };
 		7289FD202E99409B00595EF7 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		72D0D8702EA9F581000F155C /* CalendarRecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarRecordView.swift; sourceTree = "<group>"; };
+		72D0D88B2EAB355E000F155C /* ShieldConfiguration.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ShieldConfiguration.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		72D0D88C2EAB355E000F155C /* ManagedSettings.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettings.framework; path = System/Library/Frameworks/ManagedSettings.framework; sourceTree = SDKROOT; };
+		72D0D88E2EAB355F000F155C /* ManagedSettingsUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManagedSettingsUI.framework; path = System/Library/Frameworks/ManagedSettingsUI.framework; sourceTree = SDKROOT; };
+		72D0D8A22EAB5FF9000F155C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		72DDBC302EA73CD10020E9C7 /* CustomDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDivider.swift; sourceTree = "<group>"; };
 		72DDBC322EA8A04B0020E9C7 /* DateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateManager.swift; sourceTree = "<group>"; };
 		72DDBC352EA8A2BE0020E9C7 /* CalendarMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarMainView.swift; sourceTree = "<group>"; };
@@ -196,6 +212,21 @@
 			);
 			target = 7289FD052E98DC8B00595EF7 /* ActivityRe */;
 		};
+		72D0D89B2EAB355F000F155C /* Exceptions for "ShieldConfiguration" folder in "ShieldConfiguration" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 72D0D88A2EAB355E000F155C /* ShieldConfiguration */;
+		};
+		72D0D89D2EAB4BFC000F155C /* Exceptions for "ShieldConfiguration" folder in "LockRun" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ShieldActionExtension.swift,
+				ShieldConfigurationExtension.swift,
+			);
+			target = 7289FC732E98B84200595EF7 /* LockRun */;
+		};
 		72E9AEAD2EA3E4C5003DB4F6 /* Exceptions for "ActivityMo" folder in "LockRun" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -231,6 +262,15 @@
 				7289FD132E98DC8B00595EF7 /* Exceptions for "ActivityRe" folder in "ActivityRe" target */,
 			);
 			path = ActivityRe;
+			sourceTree = "<group>";
+		};
+		72D0D8902EAB355F000F155C /* ShieldConfiguration */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				72D0D89D2EAB4BFC000F155C /* Exceptions for "ShieldConfiguration" folder in "LockRun" target */,
+				72D0D89B2EAB355F000F155C /* Exceptions for "ShieldConfiguration" folder in "ShieldConfiguration" target */,
+			);
+			path = ShieldConfiguration;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -270,6 +310,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72D0D8882EAB355E000F155C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72D0D88D2EAB355F000F155C /* ManagedSettings.framework in Frameworks */,
+				72D0D88F2EAB355F000F155C /* ManagedSettingsUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,6 +412,7 @@
 				7289FC902E98B84400595EF7 /* LockRunUITests */,
 				7289FCF52E98DC6B00595EF7 /* ActivityMo */,
 				7289FD072E98DC8B00595EF7 /* ActivityRe */,
+				72D0D8902EAB355F000F155C /* ShieldConfiguration */,
 				7289FCF22E98DC6A00595EF7 /* Frameworks */,
 				7289FC752E98B84200595EF7 /* Products */,
 			);
@@ -376,6 +426,7 @@
 				7289FC8D2E98B84400595EF7 /* LockRunUITests.xctest */,
 				7289FCF12E98DC6A00595EF7 /* ActivityMo.appex */,
 				7289FD062E98DC8B00595EF7 /* ActivityRe.appex */,
+				72D0D88B2EAB355E000F155C /* ShieldConfiguration.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -383,6 +434,7 @@
 		7289FCB32E98CA5400595EF7 /* LockRun */ = {
 			isa = PBXGroup;
 			children = (
+				72D0D8A22EAB5FF9000F155C /* Info.plist */,
 				7289FD182E98DCBD00595EF7 /* LockRun.entitlements */,
 				7289FCB82E98CA5900595EF7 /* Resources */,
 				7289FCC82E98CAA900595EF7 /* Sources */,
@@ -438,6 +490,8 @@
 			isa = PBXGroup;
 			children = (
 				7289FCF32E98DC6A00595EF7 /* DeviceActivity.framework */,
+				72D0D88C2EAB355E000F155C /* ManagedSettings.framework */,
+				72D0D88E2EAB355F000F155C /* ManagedSettingsUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -601,6 +655,7 @@
 			dependencies = (
 				7289FCFB2E98DC6B00595EF7 /* PBXTargetDependency */,
 				7289FD112E98DC8B00595EF7 /* PBXTargetDependency */,
+				72D0D8962EAB355F000F155C /* PBXTargetDependency */,
 			);
 			name = LockRun;
 			packageProductDependencies = (
@@ -700,6 +755,28 @@
 			productReference = 7289FD062E98DC8B00595EF7 /* ActivityRe.appex */;
 			productType = "com.apple.product-type.extensionkit-extension";
 		};
+		72D0D88A2EAB355E000F155C /* ShieldConfiguration */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72D0D8982EAB355F000F155C /* Build configuration list for PBXNativeTarget "ShieldConfiguration" */;
+			buildPhases = (
+				72D0D8872EAB355E000F155C /* Sources */,
+				72D0D8882EAB355E000F155C /* Frameworks */,
+				72D0D8892EAB355E000F155C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				72D0D8902EAB355F000F155C /* ShieldConfiguration */,
+			);
+			name = ShieldConfiguration;
+			packageProductDependencies = (
+			);
+			productName = ShieldConfiguration;
+			productReference = 72D0D88B2EAB355E000F155C /* ShieldConfiguration.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -727,6 +804,9 @@
 					7289FD052E98DC8B00595EF7 = {
 						CreatedOnToolsVersion = 16.4;
 					};
+					72D0D88A2EAB355E000F155C = {
+						CreatedOnToolsVersion = 16.4;
+					};
 				};
 			};
 			buildConfigurationList = 7289FC6F2E98B84200595EF7 /* Build configuration list for PBXProject "LockRun" */;
@@ -751,6 +831,7 @@
 				7289FC8C2E98B84400595EF7 /* LockRunUITests */,
 				7289FCF02E98DC6A00595EF7 /* ActivityMo */,
 				7289FD052E98DC8B00595EF7 /* ActivityRe */,
+				72D0D88A2EAB355E000F155C /* ShieldConfiguration */,
 			);
 		};
 /* End PBXProject section */
@@ -789,6 +870,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72D0D8892EAB355E000F155C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72D0D89E2EAB4F8B000F155C /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,6 +970,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		72D0D8872EAB355E000F155C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -903,6 +999,11 @@
 			isa = PBXTargetDependency;
 			target = 7289FD052E98DC8B00595EF7 /* ActivityRe */;
 			targetProxy = 7289FD102E98DC8B00595EF7 /* PBXContainerItemProxy */;
+		};
+		72D0D8962EAB355F000F155C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72D0D88A2EAB355E000F155C /* ShieldConfiguration */;
+			targetProxy = 72D0D8952EAB355F000F155C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1039,6 +1140,7 @@
 				DEVELOPMENT_TEAM = QQN262X7KM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LockRun/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "내가 뛴 인증샷을 남기기 위해 카메라 접근이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "백그라운드에서도 러닝 거리를 측정하고 목표 달성 여부를 확인하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "앱이 실행되지 않을 때에도 달린 거리를 기록하기 위해 위치 정보가 필요합니다.";
@@ -1078,6 +1180,7 @@
 				DEVELOPMENT_TEAM = QQN262X7KM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LockRun/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "내가 뛴 인증샷을 남기기 위해 카메라 접근이 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "백그라운드에서도 러닝 거리를 측정하고 목표 달성 여부를 확인하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "앱이 실행되지 않을 때에도 달린 거리를 기록하기 위해 위치 정보가 필요합니다.";
@@ -1282,6 +1385,58 @@
 			};
 			name = Release;
 		};
+		72D0D8992EAB355F000F155C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldConfiguration/ShieldConfiguration.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShieldConfiguration/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShieldConfiguration;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.ShieldConfiguration;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		72D0D89A2EAB355F000F155C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = ShieldConfiguration/ShieldConfiguration.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = ShieldConfiguration/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = ShieldConfiguration;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.ShieldConfiguration;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1335,6 +1490,15 @@
 			buildConfigurations = (
 				7289FD152E98DC8B00595EF7 /* Debug */,
 				7289FD162E98DC8B00595EF7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72D0D8982EAB355F000F155C /* Build configuration list for PBXNativeTarget "ShieldConfiguration" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72D0D8992EAB355F000F155C /* Debug */,
+				72D0D89A2EAB355F000F155C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
