@@ -80,7 +80,7 @@ struct HomeView: View {
                         .foregroundStyle(.white)
                         .font(.system(size: 32))
                         .padding(32)
-                        .background(Circle().fill(Color.lightGray.opacity(0.2)))
+                        .background(Circle().fill(Color.lightGrays.opacity(0.2)))
                         .shadow(radius: 8)
                 }
                 .padding(.bottom, 100)
