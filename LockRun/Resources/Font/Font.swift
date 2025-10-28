@@ -56,6 +56,9 @@ extension FontType {
     static let bold20 = FontType
         .system(20,
                 weight: .bold)
+    static let bold30 = FontType
+        .system(30,
+                weight: .bold)
     static let semibold24 = FontType
         .system(24,
                 weight: .semibold)
