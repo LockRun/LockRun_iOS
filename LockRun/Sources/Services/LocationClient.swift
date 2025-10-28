@@ -114,3 +114,9 @@ extension CLLocationCoordinate2D {
         self.init(latitude: c.latitude, longitude: c.longitude)
     }
 }
+
+extension Coordinate {
+    var clLocationCoordinate2D: CLLocationCoordinate2D {
+        CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+}

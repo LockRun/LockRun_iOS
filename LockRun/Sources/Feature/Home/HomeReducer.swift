@@ -28,6 +28,8 @@ struct Home: Reducer {
         var conditionSymbol: String?
         var isLoadingWeather = false
         var runningGoal: RunningGoalData?
+        
+        var runningState: RunningState = .idle
     }
     
     enum Action: BindableAction {
@@ -42,6 +44,11 @@ struct Home: Reducer {
         case fetchWeather
         case weatherResponse(Result<WeatherSnapshot, Error>)
         case runningGoalLoaded(RunningGoalData?)
+        
+        case startRunning
+        case pauseRunning
+        case resumeRunning
+        case stopRunning
     }
     
     @Dependency(\.weatherClient) var weatherClient
@@ -99,7 +106,6 @@ struct Home: Reducer {
                     }
                 }
                 
-                
             case let .weatherResponse(.success(s)):
                 state.isLoadingWeather = false
                 state.temperatureC = s.tempC
@@ -114,6 +120,22 @@ struct Home: Reducer {
             case let .runningGoalLoaded(goal):
                 state.runningGoal = goal
                 return .none
+                
+            case .startRunning:
+                state.runningState = .running
+                return .send(.notifyTabbarHide(true))
+                
+            case .pauseRunning:
+                state.runningState = .paused
+                return .none
+                
+            case .resumeRunning:
+                state.runningState = .running
+                return .none
+                
+            case .stopRunning:
+                state.runningState = .idle
+                return .send(.notifyTabbarHide(false))
                 
             default:
                 return .none
