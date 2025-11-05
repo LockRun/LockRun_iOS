@@ -11,9 +11,9 @@ import CoreLocation
 struct LocationClient {
     var request: () async -> CLLocationCoordinate2D
     var resolvePlaceName: (CLLocationCoordinate2D) async -> String
+    var start: () -> AsyncStream<CLLocationCoordinate2D>
 }
 
-// LocationClient.swift
 private var delegateAssocKey: UInt8 = 0
 private var managerAssocKey: UInt8 = 0
 
@@ -46,6 +46,40 @@ enum LocationClientKey: DependencyKey {
             let p = placemarks?.first
             let name = [p?.locality, p?.subLocality].compactMap{$0}.joined(separator: " ")
             return name
+        }, start: {
+            AsyncStream { continuation in
+                Task { @MainActor in
+                    DispatchQueue.global().async {
+                        guard CLLocationManager.locationServicesEnabled() else {
+                            return
+                        }
+                    }
+                    let holder = LocationStreamHolder(continuation: continuation)
+                    _locationHolders.append(holder)
+                    holder.start()
+                    
+                    continuation.onTermination = { _ in
+                        Task { @MainActor in
+                            holder.stop()
+                            if let idx = _locationHolders.firstIndex(where: { $0 === holder }) {
+                                _locationHolders.remove(at: idx)
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+    )
+    
+    static let testValue = LocationClient(
+        request: { .init(latitude: 37.5665, longitude: 126.9780) },
+        resolvePlaceName: { _ in "MockLocation" },
+        start: {
+            AsyncStream { continuation in
+                // 위치 스트림 모의 종료
+                continuation.finish()
+            }
         }
     )
     
@@ -57,7 +91,6 @@ extension DependencyValues {
         set { self[LocationClientKey.self] = newValue }
     }
 }
-
 
 final class LocationDelegate: NSObject, CLLocationManagerDelegate {
     
@@ -104,6 +137,45 @@ final class LocationDelegate: NSObject, CLLocationManagerDelegate {
     
 }
 
+private var _locationHolders: [LocationStreamHolder] = []
+
+final class LocationStreamHolder: NSObject, CLLocationManagerDelegate {
+    
+    let manager = CLLocationManager()
+    let continuation: AsyncStream<CLLocationCoordinate2D>.Continuation
+    
+    init(continuation: AsyncStream<CLLocationCoordinate2D>.Continuation) {
+        self.continuation = continuation
+        super.init()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.distanceFilter = kCLDistanceFilterNone
+        manager.delegate = self
+    }
+    
+    func start() {
+        manager.requestWhenInUseAuthorization()
+        manager.startUpdatingLocation()
+    }
+    
+    func stop() {
+        manager.stopUpdatingLocation()
+    }
+    
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        print("auth changed:", manager.authorizationStatus.rawValue)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let c = locations.last?.coordinate {
+            continuation.yield(c)
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("location error:", error.localizedDescription)
+    }
+}
+
 struct Coordinate: Equatable {
     var latitude: Double
     var longitude: Double
@@ -118,5 +190,20 @@ extension CLLocationCoordinate2D {
 extension Coordinate {
     var clLocationCoordinate2D: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+}
+
+extension Array where Element == Coordinate {
+    var totalDistanceInKm: Double {
+        guard count > 1 else { return 0 }
+        var distance: CLLocationDistance = 0
+        for i in 1..<count {
+            let start = CLLocation(latitude: self[i-1].latitude,
+                                   longitude: self[i-1].longitude)
+            let end = CLLocation(latitude: self[i].latitude,
+                                   longitude: self[i].longitude)
+            distance += end.distance(from: start)
+        }
+        return distance / 1000.0
     }
 }

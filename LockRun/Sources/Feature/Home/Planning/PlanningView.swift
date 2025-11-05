@@ -21,11 +21,26 @@ struct PlanningView: View {
                     } label: {
                         HStack {
                             Image(systemName: "lock.fill")
+                            
                             Text("차단할 앱 선택하기")
                         }
                     }
                     .familyActivityPicker(isPresented: $store.isFamilyPickerPresented,
                                           selection: $store.selectedApps)
+                    
+                    if !store.selectedApps.applicationTokens.isEmpty {
+                        ScrollView(.horizontal, showsIndicators: false) {
+                            HStack {
+                                ForEach(Array(store.selectedApps.applicationTokens),
+                                        id: \.self) { token in
+                                    Label(token)
+                                        .labelStyle(.iconOnly)
+                                        .scaleEffect(1.2)
+                                        .padding(2)
+                                }
+                            }
+                        }
+                    }
                 } header: {
                     Text("앱 차단")
                 } footer: {
@@ -44,6 +59,7 @@ struct PlanningView: View {
                 Section {
                     DatePicker("시작 시간", selection: $store.startTime,
                                displayedComponents: .hourAndMinute)
+                    
                     DatePicker("종료 시간", selection: $store.endTime,
                                displayedComponents: .hourAndMinute)
                 } header: {
@@ -53,6 +69,7 @@ struct PlanningView: View {
                         Image(systemName: "questionmark.circle")
                             .foregroundColor(.gray)
                             .font(.caption)
+                        
                         Text("시작 시간부터 종료 시간까지 앱이 차단됩니다. \n설정된 시간이 지나거나 목표 거리를 달성하면 자동으로 해제됩니다.")
                             .font(.caption)
                             .foregroundColor(.gray)
@@ -78,12 +95,26 @@ struct PlanningView: View {
                     }
                     .padding(.top, 2)
                 }
+                
+                if store.isEditMode == true {
+                    Section {
+                        Button(role: .destructive) {
+                            store.send(.deleteButtonTapped)
+                        } label: {
+                            HStack {
+                                Spacer()
+                                Text("삭제하기")
+                                Spacer()
+                            }
+                        }
+                    }
+                }
             }
-            .navigationTitle("러닝 목표 설정")
+            .navigationTitle(store.isEditMode == true ? "러닝 목표 수정" : "러닝 목표 설정")
             .customNavigationBar(isPush: true)
             .toolbar {
                 ToolbarItem(placement: .confirmationAction) {
-                    Button("완료") {
+                    Button(store.isEditMode == true ? "수정" : "완료") {
                         store.send(.saveButtonTapped)
                     }
                     .foregroundColor(.white)

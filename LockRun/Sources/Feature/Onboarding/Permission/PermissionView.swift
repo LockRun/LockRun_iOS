@@ -41,8 +41,8 @@ struct PermissionView: View {
                         store.send(.requestStep(1))
                     }
                     PermissionExplainView(number: "2",
-                                          title: .walkingPermission,
-                                          subtitle: .subWalking,
+                                          title: .healthPermission,
+                                          subtitle: .healthWalking,
                                           status: store.steps[1])
                     .onTapGesture {
                         store.send(.requestStep(2))

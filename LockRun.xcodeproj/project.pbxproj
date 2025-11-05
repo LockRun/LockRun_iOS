@@ -19,6 +19,10 @@
 		723F5D172E9BD2C700E6AA23 /* PermissionExplainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5D162E9BD2C700E6AA23 /* PermissionExplainView.swift */; };
 		723F5D192E9CBF9300E6AA23 /* PermissionReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5D182E9CBF9300E6AA23 /* PermissionReducer.swift */; };
 		723F5D1B2E9D2AC900E6AA23 /* CustomNavigationBarModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5D1A2E9D2AC900E6AA23 /* CustomNavigationBarModifier.swift */; };
+		726DDB402EBA1A0F00D12714 /* PermissionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726DDB3F2EBA1A0F00D12714 /* PermissionManager.swift */; };
+		726DDB422EBA1D0F00D12714 /* PermissionClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726DDB412EBA1D0F00D12714 /* PermissionClient.swift */; };
+		726DDB442EBA2A5200D12714 /* HealthKitClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 726DDB432EBA2A5200D12714 /* HealthKitClient.swift */; };
+		726DDB692EBB14A700D12714 /* LockRunWatchApp Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 726DDB492EBB14A500D12714 /* LockRunWatchApp Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7289FCB62E98CA5400595EF7 /* LockRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCB22E98CA5400595EF7 /* LockRunApp.swift */; };
 		7289FCB72E98CA5400595EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7289FCAF2E98CA5400595EF7 /* Assets.xcassets */; };
 		7289FCCB2E98CAF600595EF7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCCA2E98CAF600595EF7 /* LocationManager.swift */; };
@@ -76,6 +80,27 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		726DDB562EBB14A700D12714 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7289FC6C2E98B84200595EF7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 726DDB482EBB14A500D12714;
+			remoteInfo = "LockRunWatchApp Watch App";
+		};
+		726DDB602EBB14A700D12714 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7289FC6C2E98B84200595EF7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 726DDB482EBB14A500D12714;
+			remoteInfo = "LockRunWatchApp Watch App";
+		};
+		726DDB672EBB14A700D12714 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7289FC6C2E98B84200595EF7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 726DDB482EBB14A500D12714;
+			remoteInfo = "LockRunWatchApp Watch App";
+		};
 		7289FC842E98B84400595EF7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7289FC6C2E98B84200595EF7 /* Project object */;
@@ -114,6 +139,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		726DDB6D2EBB14A700D12714 /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				726DDB692EBB14A700D12714 /* LockRunWatchApp Watch App.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7289FD012E98DC6B00595EF7 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -152,6 +188,12 @@
 		723F5D162E9BD2C700E6AA23 /* PermissionExplainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionExplainView.swift; sourceTree = "<group>"; };
 		723F5D182E9CBF9300E6AA23 /* PermissionReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionReducer.swift; sourceTree = "<group>"; };
 		723F5D1A2E9D2AC900E6AA23 /* CustomNavigationBarModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationBarModifier.swift; sourceTree = "<group>"; };
+		726DDB3F2EBA1A0F00D12714 /* PermissionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionManager.swift; sourceTree = "<group>"; };
+		726DDB412EBA1D0F00D12714 /* PermissionClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionClient.swift; sourceTree = "<group>"; };
+		726DDB432EBA2A5200D12714 /* HealthKitClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitClient.swift; sourceTree = "<group>"; };
+		726DDB492EBB14A500D12714 /* LockRunWatchApp Watch App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LockRunWatchApp Watch App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		726DDB552EBB14A700D12714 /* LockRunWatchApp Watch AppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LockRunWatchApp Watch AppTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		726DDB5F2EBB14A700D12714 /* LockRunWatchApp Watch AppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "LockRunWatchApp Watch AppUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FC742E98B84200595EF7 /* LockRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FC832E98B84400595EF7 /* LockRunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockRunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FC8D2E98B84400595EF7 /* LockRunUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockRunUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -247,6 +289,21 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		726DDB4A2EBB14A500D12714 /* LockRunWatchApp Watch App */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "LockRunWatchApp Watch App";
+			sourceTree = "<group>";
+		};
+		726DDB582EBB14A700D12714 /* LockRunWatchApp Watch AppTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "LockRunWatchApp Watch AppTests";
+			sourceTree = "<group>";
+		};
+		726DDB622EBB14A700D12714 /* LockRunWatchApp Watch AppUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "LockRunWatchApp Watch AppUITests";
+			sourceTree = "<group>";
+		};
 		7289FC862E98B84400595EF7 /* LockRunTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LockRunTests;
@@ -286,6 +343,27 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		726DDB462EBB14A500D12714 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		726DDB522EBB14A700D12714 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		726DDB5C2EBB14A700D12714 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7289FC712E98B84200595EF7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -426,6 +504,9 @@
 				7289FCF52E98DC6B00595EF7 /* ActivityMo */,
 				7289FD072E98DC8B00595EF7 /* ActivityRe */,
 				72D0D8902EAB355F000F155C /* ShieldConfiguration */,
+				726DDB4A2EBB14A500D12714 /* LockRunWatchApp Watch App */,
+				726DDB582EBB14A700D12714 /* LockRunWatchApp Watch AppTests */,
+				726DDB622EBB14A700D12714 /* LockRunWatchApp Watch AppUITests */,
 				7289FCF22E98DC6A00595EF7 /* Frameworks */,
 				7289FC752E98B84200595EF7 /* Products */,
 			);
@@ -440,6 +521,9 @@
 				7289FCF12E98DC6A00595EF7 /* ActivityMo.appex */,
 				7289FD062E98DC8B00595EF7 /* ActivityRe.appex */,
 				72D0D88B2EAB355E000F155C /* ShieldConfiguration.appex */,
+				726DDB492EBB14A500D12714 /* LockRunWatchApp Watch App.app */,
+				726DDB552EBB14A700D12714 /* LockRunWatchApp Watch AppTests.xctest */,
+				726DDB5F2EBB14A700D12714 /* LockRunWatchApp Watch AppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -496,6 +580,7 @@
 				72E9AEA82EA3CA6C003DB4F6 /* StoredBlockSelection.swift */,
 				72E9AEAA2EA3D0AA003DB4F6 /* DeviceActivityManager.swift */,
 				72DDBC322EA8A04B0020E9C7 /* DateManager.swift */,
+				726DDB3F2EBA1A0F00D12714 /* PermissionManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -637,6 +722,8 @@
 			children = (
 				72E9AF4B2EA5CCE6003DB4F6 /* LocationClient.swift */,
 				72E9AF4D2EA5D45C003DB4F6 /* WeatherClient.swift */,
+				726DDB412EBA1D0F00D12714 /* PermissionClient.swift */,
+				726DDB432EBA2A5200D12714 /* HealthKitClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -663,6 +750,74 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		726DDB482EBB14A500D12714 /* LockRunWatchApp Watch App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 726DDB6A2EBB14A700D12714 /* Build configuration list for PBXNativeTarget "LockRunWatchApp Watch App" */;
+			buildPhases = (
+				726DDB452EBB14A500D12714 /* Sources */,
+				726DDB462EBB14A500D12714 /* Frameworks */,
+				726DDB472EBB14A500D12714 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				726DDB4A2EBB14A500D12714 /* LockRunWatchApp Watch App */,
+			);
+			name = "LockRunWatchApp Watch App";
+			packageProductDependencies = (
+			);
+			productName = "LockRunWatchApp Watch App";
+			productReference = 726DDB492EBB14A500D12714 /* LockRunWatchApp Watch App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		726DDB542EBB14A700D12714 /* LockRunWatchApp Watch AppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 726DDB6E2EBB14A700D12714 /* Build configuration list for PBXNativeTarget "LockRunWatchApp Watch AppTests" */;
+			buildPhases = (
+				726DDB512EBB14A700D12714 /* Sources */,
+				726DDB522EBB14A700D12714 /* Frameworks */,
+				726DDB532EBB14A700D12714 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				726DDB572EBB14A700D12714 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				726DDB582EBB14A700D12714 /* LockRunWatchApp Watch AppTests */,
+			);
+			name = "LockRunWatchApp Watch AppTests";
+			packageProductDependencies = (
+			);
+			productName = "LockRunWatchApp Watch AppTests";
+			productReference = 726DDB552EBB14A700D12714 /* LockRunWatchApp Watch AppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		726DDB5E2EBB14A700D12714 /* LockRunWatchApp Watch AppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 726DDB712EBB14A700D12714 /* Build configuration list for PBXNativeTarget "LockRunWatchApp Watch AppUITests" */;
+			buildPhases = (
+				726DDB5B2EBB14A700D12714 /* Sources */,
+				726DDB5C2EBB14A700D12714 /* Frameworks */,
+				726DDB5D2EBB14A700D12714 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				726DDB612EBB14A700D12714 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				726DDB622EBB14A700D12714 /* LockRunWatchApp Watch AppUITests */,
+			);
+			name = "LockRunWatchApp Watch AppUITests";
+			packageProductDependencies = (
+			);
+			productName = "LockRunWatchApp Watch AppUITests";
+			productReference = 726DDB5F2EBB14A700D12714 /* LockRunWatchApp Watch AppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		7289FC732E98B84200595EF7 /* LockRun */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7289FC972E98B84400595EF7 /* Build configuration list for PBXNativeTarget "LockRun" */;
@@ -672,6 +827,7 @@
 				7289FC722E98B84200595EF7 /* Resources */,
 				7289FD012E98DC6B00595EF7 /* Embed Foundation Extensions */,
 				7289FD172E98DC8B00595EF7 /* Embed ExtensionKit Extensions */,
+				726DDB6D2EBB14A700D12714 /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
@@ -679,6 +835,7 @@
 				7289FCFB2E98DC6B00595EF7 /* PBXTargetDependency */,
 				7289FD112E98DC8B00595EF7 /* PBXTargetDependency */,
 				72D0D8962EAB355F000F155C /* PBXTargetDependency */,
+				726DDB682EBB14A700D12714 /* PBXTargetDependency */,
 			);
 			name = LockRun;
 			packageProductDependencies = (
@@ -811,6 +968,17 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					726DDB482EBB14A500D12714 = {
+						CreatedOnToolsVersion = 16.4;
+					};
+					726DDB542EBB14A700D12714 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 726DDB482EBB14A500D12714;
+					};
+					726DDB5E2EBB14A700D12714 = {
+						CreatedOnToolsVersion = 16.4;
+						TestTargetID = 726DDB482EBB14A500D12714;
+					};
 					7289FC732E98B84200595EF7 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -857,11 +1025,35 @@
 				7289FCF02E98DC6A00595EF7 /* ActivityMo */,
 				7289FD052E98DC8B00595EF7 /* ActivityRe */,
 				72D0D88A2EAB355E000F155C /* ShieldConfiguration */,
+				726DDB482EBB14A500D12714 /* LockRunWatchApp Watch App */,
+				726DDB542EBB14A700D12714 /* LockRunWatchApp Watch AppTests */,
+				726DDB5E2EBB14A700D12714 /* LockRunWatchApp Watch AppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		726DDB472EBB14A500D12714 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		726DDB532EBB14A700D12714 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		726DDB5D2EBB14A700D12714 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7289FC722E98B84200595EF7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -912,6 +1104,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		726DDB452EBB14A500D12714 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		726DDB512EBB14A700D12714 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		726DDB5B2EBB14A700D12714 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7289FC702E98B84200595EF7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -942,6 +1155,7 @@
 				72DDBC532EA92E1E0020E9C7 /* DateChangeReducer.swift in Sources */,
 				72E9AE3D2E9F6B70003DB4F6 /* HomeView.swift in Sources */,
 				72DDBC552EA930160020E9C7 /* DateChangeView.swift in Sources */,
+				726DDB442EBA2A5200D12714 /* HealthKitClient.swift in Sources */,
 				723F5D142E9B8A2F00E6AA23 /* PermissionView.swift in Sources */,
 				723F5D042E9B77A400E6AA23 /* Font.swift in Sources */,
 				72F602752EAFB447007D89AF /* RunningState.swift in Sources */,
@@ -964,7 +1178,9 @@
 				72DDBC572EA934320020E9C7 /* CalendarView.swift in Sources */,
 				72E9AE6D2E9F6FB1003DB4F6 /* TabbarReducer.swift in Sources */,
 				72E9AE412E9F6B8D003DB4F6 /* ProfileView.swift in Sources */,
+				726DDB422EBA1D0F00D12714 /* PermissionClient.swift in Sources */,
 				723F5CFB2E9B75D500E6AA23 /* AppText.swift in Sources */,
+				726DDB402EBA1A0F00D12714 /* PermissionManager.swift in Sources */,
 				72E9AE6F2E9F7020003DB4F6 /* TabbarComponent.swift in Sources */,
 				7289FCB62E98CA5400595EF7 /* LockRunApp.swift in Sources */,
 			);
@@ -1010,6 +1226,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		726DDB572EBB14A700D12714 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 726DDB482EBB14A500D12714 /* LockRunWatchApp Watch App */;
+			targetProxy = 726DDB562EBB14A700D12714 /* PBXContainerItemProxy */;
+		};
+		726DDB612EBB14A700D12714 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 726DDB482EBB14A500D12714 /* LockRunWatchApp Watch App */;
+			targetProxy = 726DDB602EBB14A700D12714 /* PBXContainerItemProxy */;
+		};
+		726DDB682EBB14A700D12714 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 726DDB482EBB14A500D12714 /* LockRunWatchApp Watch App */;
+			targetProxy = 726DDB672EBB14A700D12714 /* PBXContainerItemProxy */;
+		};
 		7289FC852E98B84400595EF7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 7289FC732E98B84200595EF7 /* LockRun */;
@@ -1038,6 +1269,142 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		726DDB6B2EBB14A700D12714 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = LockRunWatchApp;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.Jun.LockRun;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		726DDB6C2EBB14A700D12714 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = LockRunWatchApp;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_WKCompanionAppBundleIdentifier = com.Jun.LockRun;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.watchkitapp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+		726DDB6F2EBB14A700D12714 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Jun.LockRunWatchApp-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LockRunWatchApp Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LockRunWatchApp Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		726DDB702EBB14A700D12714 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Jun.LockRunWatchApp-Watch-AppTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LockRunWatchApp Watch App.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/LockRunWatchApp Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
+		726DDB722EBB14A700D12714 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Jun.LockRunWatchApp-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "LockRunWatchApp Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Debug;
+		};
+		726DDB732EBB14A700D12714 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Jun.LockRunWatchApp-Watch-AppUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				TEST_TARGET_NAME = "LockRunWatchApp Watch App";
+				WATCHOS_DEPLOYMENT_TARGET = 11.5;
+			};
+			name = Release;
+		};
 		7289FC952E98B84400595EF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1172,6 +1539,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LockRun/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "내가 뛴 인증샷을 남기기 위해 카메라 접근이 필요합니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "러닝 거리, 심박수, 칼로리 소모 등을 기록하기 위해 건강 데이터를 읽습니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "러닝 활동 기록을 건강 앱과 동기화하기 위해 사용합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "백그라운드에서도 러닝 거리를 측정하고 목표 달성 여부를 확인하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "앱이 실행되지 않을 때에도 달린 거리를 기록하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱을 사용하는 동안 달린 거리를 측정하기 위해 위치 정보가 필요합니다.";
@@ -1212,6 +1581,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LockRun/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "내가 뛴 인증샷을 남기기 위해 카메라 접근이 필요합니다.";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "러닝 거리, 심박수, 칼로리 소모 등을 기록하기 위해 건강 데이터를 읽습니다.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "러닝 활동 기록을 건강 앱과 동기화하기 위해 사용합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "백그라운드에서도 러닝 거리를 측정하고 목표 달성 여부를 확인하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "앱이 실행되지 않을 때에도 달린 거리를 기록하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱을 사용하는 동안 달린 거리를 측정하기 위해 위치 정보가 필요합니다.";
@@ -1247,7 +1618,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QQN262X7KM;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRunTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1266,7 +1637,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QQN262X7KM;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRunTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1284,6 +1655,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QQN262X7KM;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRunUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1301,6 +1673,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QQN262X7KM;
 				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRunUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1470,6 +1843,33 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		726DDB6A2EBB14A700D12714 /* Build configuration list for PBXNativeTarget "LockRunWatchApp Watch App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				726DDB6B2EBB14A700D12714 /* Debug */,
+				726DDB6C2EBB14A700D12714 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		726DDB6E2EBB14A700D12714 /* Build configuration list for PBXNativeTarget "LockRunWatchApp Watch AppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				726DDB6F2EBB14A700D12714 /* Debug */,
+				726DDB702EBB14A700D12714 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		726DDB712EBB14A700D12714 /* Build configuration list for PBXNativeTarget "LockRunWatchApp Watch AppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				726DDB722EBB14A700D12714 /* Debug */,
+				726DDB732EBB14A700D12714 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		7289FC6F2E98B84200595EF7 /* Build configuration list for PBXProject "LockRun" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

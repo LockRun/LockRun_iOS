@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ManagedSettings
 
 struct RunningGoalCard: View {
     
@@ -13,22 +14,63 @@ struct RunningGoalCard: View {
     var distance: String
     var progress: String
     var time: String
+    var apps: [ApplicationToken] = []
+    var onEdit: () -> Void
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Label(distance, systemImage: "ruler")
+                Label(distance,
+                      systemImage: "ruler")
+                
                 Spacer()
-                Label(progress, systemImage: "moon")
+                
+                Label(progress,
+                      systemImage: "moon")
+                
+                Button {
+                    onEdit()
+                } label: {
+                    Image(systemName: "pencil")
+                        .font(.system(size: 18))
+                        .foregroundStyle(.white)
+                        .padding(4)
+                        .background(Color.black.opacity(0.2))
+                        .clipShape(Circle())
+                }
             }
             .font(.caption)
             
-            Text(title)
-                .font(.headline)
+            HStack {
+                Text(title)
+                    .font(.headline)
+                
+                if !apps.isEmpty {
+                    Text("제어된 앱")
+                        .font(.headline)
+                }
+            }
             
-            Text(time)
-                .font(.caption)
-                .foregroundColor(.secondary)
+            HStack(alignment: .center) {
+                Text(time)
+                    .font(.caption)
+                    .foregroundColor(.secondary)
+                
+                Spacer()
+                
+                if !apps.isEmpty {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        HStack(spacing: 8) {
+                            ForEach(apps, id: \.self) { app in
+                                Label(app)
+                                    .labelStyle(.iconOnly)
+                                    .scaleEffect(1.2)
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
         .padding()
         .frame(maxWidth: .infinity)
@@ -43,5 +85,7 @@ struct RunningGoalCard: View {
                     distance: "0.0km / 5.0km",
                     progress: "0%",
                     time: "20:00 ~ 22:00"
-                    )
+    ){
+        
+    }
 }

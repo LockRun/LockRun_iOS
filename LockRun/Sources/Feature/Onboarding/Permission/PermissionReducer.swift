@@ -34,6 +34,8 @@ struct Permission: Reducer {
         case nextStep
     }
     
+    @Dependency(\.permissionClient) var permissionClient
+    
     var body: some ReducerOf<Self> {
         Reduce { state, action in
             switch action {
@@ -51,24 +53,32 @@ struct Permission: Reducer {
                     
                 case 2:
                     return .run { send in
-                        //모션이 가능한 폰인지 확인(시뮬은 전부 안됨, iPad도 안됨)
-                        guard CMMotionActivityManager.isActivityAvailable() else {
+                        do {
+                            let granted = try await permissionClient.requestHealthKit()
+                            await send(granted ? .stepGranted(2) : .stepDenied(2))
+                        } catch {
                             await send(.stepDenied(2))
-                            return
                         }
-                        
-                        let manager = CMMotionActivityManager()
-                        
-                        let status = await withCheckedContinuation { continuation in
-                            manager.startActivityUpdates(to: .main) { _ in
-                                continuation.resume(returning: CMMotionActivityManager.authorizationStatus())
-                                manager.stopActivityUpdates()
-                            }
-                        }
-                        
-                        await send(status == .authorized ? .stepGranted(2) : .stepDenied(2))
                     }
-                    
+
+//                    return .run { send in
+//                        //모션이 가능한 폰인지 확인(시뮬은 전부 안됨, iPad도 안됨)
+//                        guard CMMotionActivityManager.isActivityAvailable() else {
+//                            await send(.stepDenied(2))
+//                            return
+//                        }
+//                        
+//                        let manager = CMMotionActivityManager()
+//                        
+//                        let status = await withCheckedContinuation { continuation in
+//                            manager.startActivityUpdates(to: .main) { _ in
+//                                continuation.resume(returning: CMMotionActivityManager.authorizationStatus())
+//                                manager.stopActivityUpdates()
+//                            }
+//                        }
+//                        
+//                        await send(status == .authorized ? .stepGranted(2) : .stepDenied(2))
+//                    }
                     
                 case 3:
                     return .run { send in
@@ -153,7 +163,7 @@ extension Permission.State {
     var currentButtonTitle: ButtonTitle {
         switch currentStep {
         case 1: return .screenTime
-        case 2: return .walking
+        case 2: return .health
         case 3: return .location
         case 4: return .alert
         case 5: return .camera
