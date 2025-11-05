@@ -15,6 +15,7 @@ struct Planning: Reducer {
     
     @ObservableState
     struct State: Equatable {
+        var isEditMode: Bool?
         var selectedApps: FamilyActivitySelection = .init()
         var isFamilyPickerPresented: Bool = false
         var kmGoal: Int = 1
@@ -22,11 +23,12 @@ struct Planning: Reducer {
         var endTime: Date = Date().addingTimeInterval(3600)
     }
     
-    enum Action: BindableAction {
+    enum Action: BindableAction, Equatable {
         case binding(BindingAction<State>)
         case toggleFamilyPicker(Bool)
         case saveButtonTapped
         case cancelButtonTapped
+        case deleteButtonTapped
     }
     
     var body: some ReducerOf<Self> {
@@ -79,6 +81,12 @@ struct Planning: Reducer {
                 
             case .cancelButtonTapped:
                 return .none
+                
+            case .deleteButtonTapped:
+                
+                return .run { send in
+                    await send(.cancelButtonTapped)
+                }
                 
             default:
                 return .none

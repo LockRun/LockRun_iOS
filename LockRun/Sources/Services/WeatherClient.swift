@@ -40,6 +40,10 @@ enum WeatherClientKey: DependencyKey {
                      precipProb: precipPercent,
                      sfSymbolName: symbol)
     }
+    
+    static let testValue = WeatherClient { _ in
+            .init(tempC: 20, precipProb: 0, sfSymbolName: "sun.max.fill")
+    }
 }
 
 extension DependencyValues {

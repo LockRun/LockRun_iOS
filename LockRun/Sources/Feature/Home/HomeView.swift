@@ -19,7 +19,6 @@ struct HomeView: View {
         ZStack {
             backgroundView
             contentView
-            floatingButton
             
             if showCountdown {
                 Color.black.opacity(0.7).ignoresSafeArea()
@@ -32,6 +31,13 @@ struct HomeView: View {
             }
         }
         .task { store.send(.onAppear) }
+        .navigationDestination(
+            item: $store.scope(state: \.planning, action: \.planning)
+        ) { addDateStore in
+            NavigationStack {
+                PlanningView(store: addDateStore) .toolbar(.hidden, for: .tabBar)
+            }
+        }
     }
     
 }
@@ -43,20 +49,28 @@ private extension HomeView {
         Color(.background)
             .ignoresSafeArea()
         
-        Map(position: $store.camera)
-            .ignoresSafeArea()
-            .overlay(Color.black.opacity(0.5))
-            .overlay(Color.black.opacity(store.runningState == .running ? 0.3 : 0.5))
-            .onChange(of: store.runningState) { _, running in
-                withAnimation(.linear(duration: 0.1)) {
-                    if let coord = store.coord {
-                        let zoomSpan = MKCoordinateSpan(latitudeDelta: running == .running ? 0.02 : 0.05,
-                                                        longitudeDelta: running == .running ? 0.02 : 0.05)
-                        store.camera = .region(.init(center: coord.clLocationCoordinate2D,
-                                                     span: zoomSpan))
-                    }
+        Map(position: $store.camera, interactionModes: .all){
+            if store.runningState == .running {
+                UserAnnotation()
+            }
+            if store.path.count > 1 {
+                MapPolyline(coordinates: store.path.map { $0.clLocationCoordinate2D })
+                    .stroke(.yellow, lineWidth: 5)
+            }
+        }
+        .ignoresSafeArea()
+        .overlay(Color.black.opacity(0.5))
+        .overlay(Color.black.opacity(store.runningState == .running ? 0.3 : 0.5))
+        .onChange(of: store.runningState) { _, running in
+            withAnimation(.linear(duration: 0.1)) {
+                if let coord = store.coord {
+                    let zoomSpan = MKCoordinateSpan(latitudeDelta: running == .running ? 0.01 : 0.05,
+                                                    longitudeDelta: running == .running ? 0.01 : 0.05)
+                    store.camera = .region(.init(center: coord.clLocationCoordinate2D,
+                                                 span: zoomSpan))
                 }
             }
+        }
         
         RadialGradient(
             gradient: Gradient(stops: [
@@ -102,26 +116,84 @@ private extension HomeView {
             }
             .padding(.top, 40)
         } else {
-            VStack(spacing: 16) {
-                Text("러닝 목표 달성까지 남은 시간")
-                    .font(.headline)
-                    .foregroundColor(.white)
-                
-                Text("01:59:58")
-                    .font(.system(size: 36, weight: .bold))
-                    .foregroundColor(.blue.opacity(0.8))
-                
+            VStack(spacing: 12) {
                 Capsule()
                     .fill(Color.black.opacity(0.3))
-                    .frame(height: 48)
+                    .frame(height: 44)
                     .overlay(
                         Text("오늘도 어제보다 강한 나를 만들어보자!")
                             .foregroundColor(.white)
                             .font(.subheadline)
                     )
                     .padding(.horizontal, 32)
+                
+                Text(store.timeText)
+                    .font(.system(size: 36, weight: .bold))
+                    .foregroundColor(.blue.opacity(0.8))
+                
+                HStack(spacing: 24) {
+                    VStack {
+                        Image(systemName: "heart.fill")
+                            .foregroundColor(.red)
+                            .font(.title2)
+                        if let hr = store.heartRateBPM {
+                            HStack(alignment: .firstTextBaseline, spacing: 4) {
+                                Text("\(hr)")
+                                    .font(.system(size: 28, weight: .bold))
+                                    .foregroundColor(.white)
+                                
+                                Text("bpm")
+                                    .font(.system(size: 14, weight: .medium))
+                                    .foregroundColor(.white.opacity(0.8))
+                            }
+                        } else {
+                            HStack(alignment: .firstTextBaseline, spacing: 4) {
+                                Text("--")
+                                    .font(.system(size: 28, weight: .bold))
+                                    .foregroundColor(.white)
+                                
+                                Text("bpm")
+                                    .font(.system(size: 14, weight: .medium))
+                                    .foregroundColor(.white.opacity(0.8))
+                            }
+                        }
+                    }
+                    
+                    VStack {
+                        Image(systemName: "figure.run")
+                            .foregroundColor(.green)
+                            .font(.title2)
+                        
+                        HStack(alignment: .firstTextBaseline, spacing: 4) {
+                            Text("5'32\"")
+                                .font(.system(size: 28, weight: .bold))
+                                .foregroundColor(.white)
+                            
+                            Text("/km")
+                                .font(.system(size: 14, weight: .medium))
+                                .foregroundColor(.white.opacity(0.8))
+                        }
+                    }
+                    
+                    VStack {
+                        Image(systemName: "location.fill")
+                            .foregroundColor(.yellow)
+                            .font(.title2)
+                        
+                        HStack(alignment: .firstTextBaseline, spacing: 4) {
+                            Text(String(format: "%.2f ", store.totalDistance ?? 2.13))
+                                .font(.system(size: 28, weight: .bold))
+                                .foregroundColor(.white)
+                            
+                            Text("km")
+                                .font(.system(size: 14, weight: .medium))
+                                .foregroundColor(.white.opacity(0.8))
+                        }
+                    }
+                }
+                .padding(.top, 4)
             }
-            .padding(.top, 40)
+            .padding(.top, 32)
         }
     }
     
@@ -130,8 +202,10 @@ private extension HomeView {
         HStack(spacing: 20) {
             Label("\(store.temperatureC.map{"\($0)°C"} ?? "—")",
                   systemImage: store.conditionSymbol ?? "questionmark")
+            
             Label("\(store.precipProbPercent.map{"\($0)%"} ?? "—")",
                   systemImage: "cloud.rain")
+            
             Label(store.placeName, systemImage: "location")
         }
         .font(.subheadline)
@@ -149,57 +223,70 @@ private extension HomeView {
                     title: goal.title,
                     distance: "0.0km / \(goal.distanceGoal)km",
                     progress: "0%",
-                    time: "\(goal.startTime.formatted(date: .omitted, time: .shortened)) ~ \(goal.endTime.formatted(date: .omitted, time: .shortened))"
-                )
+                    time: "\(goal.startTime.formatted(date: .omitted, time: .shortened)) ~ \(goal.endTime.formatted(date: .omitted, time: .shortened))",
+                    apps: store.selectedApps
+                ){
+                    store.send(.editButtonTapped)
+                }
                 .padding(.horizontal, 24)
             } else {
-                Text("러닝 목표가 없습니다")
-                    .foregroundColor(.gray)
+                Button {
+                    store.send(.plusButtonTapped)
+                } label: {
+                    VStack(spacing: 6) {
+                        Image(systemName: "plus.circle.fill")
+                            .font(.system(size: 36))
+                            .foregroundColor(.white)
+                        
+                        Text("러닝 목표 추가")
+                            .foregroundColor(.white)
+                            .font(.headline)
+                        
+                        Text("나만의 러닝 계획을 만들어보세요")
+                            .foregroundColor(.white.opacity(0.7))
+                            .font(.caption)
+                    }
+                    .padding(.vertical, 30)
+                    .frame(maxWidth: .infinity)
+                    .background(
+                        RoundedRectangle(cornerRadius: 24)
+                            .fill(LinearGradient(
+                                colors: [.blue.opacity(0.8), .purple.opacity(0.8)],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ))
+                    )
+                    .padding(.horizontal, 32)
+                }
+                
             }
         } else {
             VStack {
                 VStack(alignment: .leading) {
                     Text("러닝 목표")
                         .foregroundColor(.white)
-                    ProgressView(value: 0.8, total: 2.0)
-                        .progressViewStyle(.linear)
-                        .tint(.blue)
+                    
+                    ProgressView(value: store.totalDistance,
+                                 total:  Double(store.runningGoal?.distanceGoal ?? 0))
+                    .progressViewStyle(.linear)
+                    .tint(.blue)
+                    
                     HStack {
-                        Text("0.8Km").foregroundColor(.white)
+                        Text(String(format: "%.2fKm", store.totalDistance ?? 0))
+                            .foregroundColor(.white)
+                        
                         Spacer()
-                        Text("2Km").foregroundColor(.gray)
+                        
+                        Text("\(store.runningGoal?.distanceGoal ?? 0)Km")
+                            .foregroundColor(.gray)
                     }
                     .font(.caption)
                 }
                 .padding()
                 .background(Color.black.opacity(0.4))
                 .cornerRadius(20)
-                
-                //                RoundedRectangle(cornerRadius: 20)
-                //                    .fill(Color.lightGrays.opacity(0.2))
-                //                    .frame(height: 80)
-                //                    .overlay(realTimeInfo)
-                //                    .padding(.horizontal, 24)
             }
             .padding(.horizontal, 32)
-        }
-    }
-    
-    @ViewBuilder
-    var realTimeInfo: some View {
-        VStack {
-            CommonText(text: "실시간 정보", font: .bold18, color: .white)
-                .padding(.top, 12)
-            Spacer()
-            HStack(spacing: 100) {
-                HStack(spacing: 8) {
-                    CommonText(text: "0.8km", font: .bold20, color: .white)
-                    CommonText(text: "/ 2km", font: .bold18, color: .gray)
-                }
-                CommonText(text: "50calorie", font: .bold20, color: .white)
-            }
-            .padding(.horizontal, 12)
-            .padding(.bottom, 8)
         }
     }
     
@@ -258,31 +345,6 @@ private extension HomeView {
                 }
                 .padding(.horizontal, 40)
                 .padding(.bottom, 40)
-            }
-        }
-    }
-    
-    var floatingButton: some View {
-        Group {
-            if store.runningState == .idle {
-                VStack {
-                    HStack {
-                        Spacer()
-                        Button {
-                            store.send(.plusButtonTapped)
-                        } label: {
-                            Image(systemName: "plus")
-                                .font(.system(size: 20, weight: .bold))
-                                .foregroundColor(.white)
-                                .padding(12)
-                                .background(.ultraThinMaterial)
-                                .clipShape(Circle())
-                        }
-                    }
-                    .padding(.top, 40)
-                    .padding(.trailing, 20)
-                    Spacer()
-                }
             }
         }
     }
