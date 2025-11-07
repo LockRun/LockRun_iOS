@@ -46,6 +46,9 @@ struct Home: Reducer {
         var elapsedTime: TimeInterval = 0
         var timeText: String = "00:00:00"
         var heartRateBPM: Int? = nil
+        var pace: String? = nil
+        var cadence: Int = 0
+        var isAuthorized: Bool = false
     }
     
     enum Action: BindableAction, Equatable {
@@ -54,6 +57,7 @@ struct Home: Reducer {
         case editButtonTapped
         case planning(PresentationAction<Planning.Action>)
         case notifyTabbarHide(Bool)
+        case authorizationResponse(Bool)
         
         case onAppear
         case locationUpdated(Coordinate)
@@ -75,12 +79,17 @@ struct Home: Reducer {
         case heartRateUpdated(Double)
         case startHeartRate
         case stopHeartRate
+        
+        case pedometerDataUpdated(PedometerData)
     }
     
     @Dependency(\.weatherClient) var weatherClient
     @Dependency(\.locationClient) var locationClient
     @Dependency(\.continuousClock) var continuousClock
     @Dependency(\.healthKitClient) var healthKitClient
+    @Dependency(\.pedometerClient) var pedometerClient
+    
+    private let watchSession = WatchSessionManager.shared
     
     var body: some ReducerOf<Self> {
         BindingReducer()
@@ -116,21 +125,37 @@ struct Home: Reducer {
                 state.planning = nil
                 return .send(.notifyTabbarHide(false))
                 
+            case let .authorizationResponse(isAuthorized):
+                state.isAuthorized = isAuthorized
+                return .none
+                
             case .onAppear:
-                return .run { send in
-                    let coord = await locationClient.request()
-                    let name = await locationClient.resolvePlaceName(coord)
-                    let goal = SwiftDataDBManager.shared.fetchRunningGoal()
-                    let stored = FamilyActivityStorage.load()
-                    await send(.locationUpdated((Coordinate(latitude: coord.latitude,
-                                                            longitude: coord.longitude))))
-                    await send(.placeResolved(name))
-                    await send(.fetchWeather)
-                    await send(.runningGoalLoaded(goal))
-                    if let stored = stored {
-                        await send(.appsLoaded(stored.apps))
+                return .merge(
+                    .run { send in
+                        let stream = watchSession.startHeartRateStream()
+                        for await bpm in stream {
+                            await send(.heartRateUpdated(bpm))
+                        }
                     }
-                }
+                        .cancellable(id: "watchBPMStream", cancelInFlight: true),
+                    
+                        .run { send in
+                            let coord = await locationClient.request()
+                            let name = await locationClient.resolvePlaceName(coord)
+                            let goal = SwiftDataDBManager.shared.fetchRunningGoal()
+                            let stored = FamilyActivityStorage.load()
+                            let result = try await pedometerClient.requestAuthorization()
+                            await send(.authorizationResponse(result))
+                            await send(.locationUpdated((Coordinate(latitude: coord.latitude,
+                                                                    longitude: coord.longitude))))
+                            await send(.placeResolved(name))
+                            await send(.fetchWeather)
+                            await send(.runningGoalLoaded(goal))
+                            if let stored = stored {
+                                await send(.appsLoaded(stored.apps))
+                            }
+                        }
+                )
                 
             case let .appsLoaded(apps):
                 state.selectedApps = apps
@@ -181,6 +206,7 @@ struct Home: Reducer {
                 
             case .startRunning:
                 state.runningState = .running
+                watchSession.wakeWatchApp()
                 if let coord = state.coord {
                     state.path = [coord]
                 }
@@ -201,18 +227,28 @@ struct Home: Reducer {
                         }
                     }
                         .cancellable(id: ObjectIdentifier(LocationStreamID.self),
+                                     cancelInFlight: true),
+                    .run { send in
+                        for await data in pedometerClient.startPedometerUpdates() {
+                            await send(.pedometerDataUpdated(data))
+                        }
+                    }
+                        .cancellable(id: "pedometer",
                                      cancelInFlight: true)
                 )
                 
             case .pauseRunning:
                 state.runningState = .paused
+                watchSession.sendAction("pause")
                 return .merge(
                     .send(.stopTimer),
-                    .send(.stopHeartRate)
+                    .send(.stopHeartRate),
+                    .run { _ in pedometerClient.stopPedometerUpdates() }
                 )
                 
             case .resumeRunning:
                 state.runningState = .running
+                watchSession.sendAction("resume")
                 return .merge(
                     .run { [continuousClock] send in
                         for await _ in continuousClock.timer(interval: .seconds(1)) {
@@ -221,18 +257,32 @@ struct Home: Reducer {
                     }
                         .cancellable(id: "elapsedTimer",
                                      cancelInFlight: true),
-                    .send(.startHeartRate)
+                    .send(.startHeartRate),
+                    .run { send in
+                        for await data in pedometerClient.startPedometerUpdates() {
+                            await send(.pedometerDataUpdated(data))
+                        }
+                    }
+                        .cancellable(id: "pedometer", cancelInFlight: true)
                 )
                 
             case .stopRunning:
-                state.runningState = .idle
-                state.elapsedTime = 0
-                state.timeText = "00:00:00"
+                state.runningState = .stop
+                watchSession.sendAction("stop")
+                //                state.elapsedTime = 0
+                //                state.timeText = "00:00:00"
+                //                state.heartRateBPM = nil
+                //                state.pace = "--'--\""
+                //                state.cadence = 0
+                //                state.totalDistance = nil
+                
                 return .merge(
                     .send(.stopTimer),
                     .send(.stopHeartRate),
                     .send(.notifyTabbarHide(false)),
-                    .cancel(id: ObjectIdentifier(LocationStreamID.self))
+                    .cancel(id: ObjectIdentifier(LocationStreamID.self)),
+                    .run { _ in pedometerClient.stopPedometerUpdates() },
+                    .cancel(id: "pedometer"),
                 )
                 
             case .updateElapsedTime:
@@ -262,6 +312,18 @@ struct Home: Reducer {
                 
             case let .heartRateUpdated(bpm):
                 state.heartRateBPM = Int(bpm.rounded())
+                return .none
+                
+            case let .pedometerDataUpdated(data):
+                if let pace = data.pace {
+                    let secPerKm = 1000 / pace
+                    let min = Int(secPerKm / 60)
+                    let sec = Int(secPerKm.truncatingRemainder(dividingBy: 60))
+                    state.pace = String(format: "%d'%02d\"", min, sec)
+                }
+                if let cadence = data.cadence {
+                    state.cadence = Int(cadence * 60)
+                }
                 return .none
                 
             default:

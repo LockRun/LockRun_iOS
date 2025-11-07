@@ -11,4 +11,5 @@ enum RunningState: Equatable {
     case idle
     case running
     case paused
+    case stop
 }

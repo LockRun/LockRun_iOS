@@ -87,10 +87,23 @@ private extension HomeView {
     @ViewBuilder
     var contentView: some View {
         VStack {
-            headerView
-            Spacer()
-            runningInfoView
-            runButton
+            switch store.runningState {
+            case .idle:
+                headerView
+                Spacer()
+                runningInfoView
+                runButton
+                
+            case .running, .paused:
+                headerView
+                Spacer()
+                runningInfoView
+                runButton
+                
+            case .stop:
+                stoppedView
+                Spacer()
+            }
         }
     }
     
@@ -163,15 +176,26 @@ private extension HomeView {
                         Image(systemName: "figure.run")
                             .foregroundColor(.green)
                             .font(.title2)
-                        
-                        HStack(alignment: .firstTextBaseline, spacing: 4) {
-                            Text("5'32\"")
-                                .font(.system(size: 28, weight: .bold))
-                                .foregroundColor(.white)
-                            
-                            Text("/km")
-                                .font(.system(size: 14, weight: .medium))
-                                .foregroundColor(.white.opacity(0.8))
+                        if let pace = store.pace {
+                            HStack(alignment: .firstTextBaseline, spacing: 4) {
+                                Text(pace)
+                                    .font(.system(size: 28, weight: .bold))
+                                    .foregroundColor(.white)
+                                
+                                Text("/km")
+                                    .font(.system(size: 14, weight: .medium))
+                                    .foregroundColor(.white.opacity(0.8))
+                            }
+                        } else {
+                            HStack(alignment: .firstTextBaseline, spacing: 4) {
+                                Text("--'--\"")
+                                    .font(.system(size: 28, weight: .bold))
+                                    .foregroundColor(.white)
+                                
+                                Text("/km")
+                                    .font(.system(size: 14, weight: .medium))
+                                    .foregroundColor(.white.opacity(0.8))
+                            }
                         }
                     }
                     
@@ -186,6 +210,21 @@ private extension HomeView {
                                 .foregroundColor(.white)
                             
                             Text("km")
+                                .font(.system(size: 14, weight: .medium))
+                                .foregroundColor(.white.opacity(0.8))
+                        }
+                    }
+                    
+                    VStack {
+                        Image(systemName: "metronome")
+                            .foregroundColor(.cyan)
+                            .font(.title2)
+                        
+                        HStack(alignment: .firstTextBaseline, spacing: 4) {
+                            Text("\(store.cadence)")
+                                .font(.system(size: 28, weight: .bold))
+                                .foregroundColor(.white)
+                            Text("spm")
                                 .font(.system(size: 14, weight: .medium))
                                 .foregroundColor(.white.opacity(0.8))
                         }
@@ -258,7 +297,6 @@ private extension HomeView {
                     )
                     .padding(.horizontal, 32)
                 }
-                
             }
         } else {
             VStack {
@@ -307,15 +345,28 @@ private extension HomeView {
                 .padding(.bottom, 100)
                 
             case .running:
-                Button {
-                    store.send(.pauseRunning)
-                } label: {
-                    Image(systemName: "pause.fill")
-                        .foregroundStyle(.white)
-                        .font(.system(size: 32))
-                        .padding(32)
-                        .background(Circle().fill(Color.lightGrays.opacity(0.2)))
-                        .shadow(radius: 8)
+                HStack(spacing: 40){
+                    Button {
+                        store.send(.stopRunning)
+                    } label: {
+                        Image(systemName: "stop.fill")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 32))
+                            .padding(32)
+                            .background(Circle().fill(Color.lightGrays.opacity(0.2)))
+                            .shadow(radius: 8)
+                    }
+                    
+                    Button {
+                        store.send(.pauseRunning)
+                    } label: {
+                        Image(systemName: "pause.fill")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 32))
+                            .padding(32)
+                            .background(Circle().fill(Color.lightGrays.opacity(0.2)))
+                            .shadow(radius: 8)
+                    }
                 }
                 .padding(.bottom, 20)
                 
@@ -345,9 +396,93 @@ private extension HomeView {
                 }
                 .padding(.horizontal, 40)
                 .padding(.bottom, 40)
+                
+            case .stop:
+                EmptyView()
             }
         }
     }
+    
+    @ViewBuilder
+    var stoppedView: some View {
+        VStack(spacing: 20) {
+            ZStack(alignment: .bottom) {
+                Map(position: $store.camera, interactionModes: []) {
+                    if store.path.count > 1 {
+                        MapPolyline(coordinates: store.path.map { $0.clLocationCoordinate2D })
+                            .stroke(.yellow, lineWidth: 5)
+                    }
+                }
+                .ignoresSafeArea(edges: .top)
+                .frame(height: 350)
+                .overlay(
+                    LinearGradient(
+                        gradient: Gradient(colors: [.clear, .black.opacity(0.8)]),
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                )
+                
+                VStack(spacing: 8) {
+                    Text("러닝 완료 🎉")
+                        .font(.title)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                    
+                    Text("오늘도 멋진 달리기였어요")
+                        .foregroundColor(.white.opacity(0.8))
+                        .font(.subheadline)
+                }
+                .padding(.bottom, 24)
+            }
+            
+            VStack(spacing: 24) {
+                HStack(spacing: 40) {
+                    summaryItem(icon: "clock", title: "시간", value: store.timeText)
+                    summaryItem(icon: "location.fill", title: "거리", value: String(format: "%.2f km", store.totalDistance ?? 0))
+                }
+                HStack(spacing: 40) {
+                    summaryItem(icon: "figure.run", title: "페이스", value: store.pace ?? "--'--\"")
+                    summaryItem(icon: "metronome", title: "케이던스", value: "\(store.cadence) spm")
+                }
+            }
+            .padding()
+            .background(Color.black.opacity(0.4))
+            .cornerRadius(24)
+            .padding(.horizontal, 32)
+            
+            Button {
+                store.send(.notifyTabbarHide(false))
+                store.runningState = .idle
+            } label: {
+                Text("기록 저장하고 종료하기")
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding()
+                    .background(Color.blue.opacity(0.8))
+                    .cornerRadius(16)
+            }
+            .padding(.horizontal, 40)
+            .padding(.top, 12)
+        }
+    }
+    
+    @ViewBuilder
+    func summaryItem(icon: String, title: String, value: String) -> some View {
+        VStack(spacing: 6) {
+            Image(systemName: icon)
+                .font(.title2)
+                .foregroundColor(.white)
+            Text(title)
+                .foregroundColor(.gray)
+                .font(.caption)
+            Text(value)
+                .font(.title3)
+                .foregroundColor(.white)
+                .fontWeight(.semibold)
+        }
+    }
+    
     
 }
 
