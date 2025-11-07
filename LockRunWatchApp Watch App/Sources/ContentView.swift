@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @EnvironmentObject private var manager: WorkoutManager
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("❤️ \(manager.heartRate)")
+                .font(.largeTitle)
         }
-        .padding()
+        .onAppear { manager.start() }
     }
 }
 
