@@ -31,7 +31,6 @@ struct LockRunApp: App {
                 }
             }
             .onOpenURL { url in
-                print("딥링크 들어옴: \(url)")
                 if url.scheme == "lockrun", url.host == "running-stats" {
                     // TODO: 러닝 기록 화면으로 이동
                 }

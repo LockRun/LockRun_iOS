@@ -30,6 +30,26 @@
 		726DDBB62EBB95D400D12714 /* LockRunWatchApp Watch App.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 726DDB492EBB14A500D12714 /* LockRunWatchApp Watch App.app */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		72888AEB2EBC81C800619BF0 /* WatchAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888AEA2EBC81C800619BF0 /* WatchAppDelegate.swift */; };
 		72888AED2EBDBA3400619BF0 /* PedometerClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888AEC2EBDBA3400619BF0 /* PedometerClient.swift */; };
+		72888B132EC0682E00619BF0 /* DeviceActivityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888B122EC0682E00619BF0 /* DeviceActivityClient.swift */; };
+		72888B1A2EC0753200619BF0 /* AppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72E9AEA62EA3C9DB003DB4F6 /* AppGroup.swift */; };
+		72888B732EC0C52700619BF0 /* DeviceReportHostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888B722EC0C52700619BF0 /* DeviceReportHostView.swift */; };
+		72888BA42EC19C9B00619BF0 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888BA32EC19C9B00619BF0 /* LiveActivityManager.swift */; };
+		72888BAA2EC1A21D00619BF0 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72888B792EC1933700619BF0 /* WidgetKit.framework */; };
+		72888BAB2EC1A21D00619BF0 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72888B7B2EC1933800619BF0 /* SwiftUI.framework */; };
+		72888BBC2EC1A21F00619BF0 /* LockRunWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 72888BA92EC1A21D00619BF0 /* LockRunWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		72888BCB2EC1A24800619BF0 /* LockRunWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888BC52EC1A24800619BF0 /* LockRunWidgetBundle.swift */; };
+		72888BCE2EC1A24800619BF0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72888BC22EC1A24800619BF0 /* Assets.xcassets */; };
+		72888BD62EC1A33000619BF0 /* RunningActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888BD52EC1A33000619BF0 /* RunningActivityWidget.swift */; };
+		72888BD72EC1A33000619BF0 /* RunningActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888BD52EC1A33000619BF0 /* RunningActivityWidget.swift */; };
+		72888BD92EC1A42800619BF0 /* RunningAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888BD82EC1A42800619BF0 /* RunningAttributes.swift */; };
+		72888BDA2EC1A42800619BF0 /* RunningAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888BD82EC1A42800619BF0 /* RunningAttributes.swift */; };
+		72888BDC2EC1AB9600619BF0 /* Image+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723F5D092E9B79EA00E6AA23 /* Image+Extension.swift */; };
+		72888BDE2EC1B25800619BF0 /* PauseRunningIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888BDD2EC1B25800619BF0 /* PauseRunningIntent.swift */; };
+		72888BDF2EC1B25800619BF0 /* PauseRunningIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888BDD2EC1B25800619BF0 /* PauseRunningIntent.swift */; };
+		72888BE12EC1B27900619BF0 /* ResumeRunningIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888BE02EC1B27900619BF0 /* ResumeRunningIntent.swift */; };
+		72888BE22EC1B27900619BF0 /* ResumeRunningIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888BE02EC1B27900619BF0 /* ResumeRunningIntent.swift */; };
+		72888BE42EC1B34500619BF0 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888BE32EC1B34500619BF0 /* NotificationName+Extension.swift */; };
+		72888BE52EC1B34500619BF0 /* NotificationName+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72888BE32EC1B34500619BF0 /* NotificationName+Extension.swift */; };
 		7289FCB62E98CA5400595EF7 /* LockRunApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCB22E98CA5400595EF7 /* LockRunApp.swift */; };
 		7289FCB72E98CA5400595EF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7289FCAF2E98CA5400595EF7 /* Assets.xcassets */; };
 		7289FCCB2E98CAF600595EF7 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7289FCCA2E98CAF600595EF7 /* LocationManager.swift */; };
@@ -108,6 +128,13 @@
 			remoteGlobalIDString = 726DDB482EBB14A500D12714;
 			remoteInfo = "LockRunWatchApp Watch App";
 		};
+		72888BBA2EC1A21F00619BF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7289FC6C2E98B84200595EF7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 72888BA82EC1A21D00619BF0;
+			remoteInfo = LockRunWidgetExtension;
+		};
 		7289FC842E98B84400595EF7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 7289FC6C2E98B84200595EF7 /* Project object */;
@@ -157,6 +184,16 @@
 			name = "Embed Watch Content";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		72888B8C2EC1933A00619BF0 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7289FD012E98DC6B00595EF7 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -165,6 +202,7 @@
 			files = (
 				72D0D8972EAB355F000F155C /* ShieldConfiguration.appex in Embed Foundation Extensions */,
 				7289FCFC2E98DC6B00595EF7 /* ActivityMo.appex in Embed Foundation Extensions */,
+				72888BBC2EC1A21F00619BF0 /* LockRunWidgetExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -210,6 +248,20 @@
 		726DDBB42EBB7B8B00D12714 /* LockRunWatchApp-Watch-App-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "LockRunWatchApp-Watch-App-Info.plist"; sourceTree = SOURCE_ROOT; };
 		72888AEA2EBC81C800619BF0 /* WatchAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchAppDelegate.swift; sourceTree = "<group>"; };
 		72888AEC2EBDBA3400619BF0 /* PedometerClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PedometerClient.swift; sourceTree = "<group>"; };
+		72888B122EC0682E00619BF0 /* DeviceActivityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceActivityClient.swift; sourceTree = "<group>"; };
+		72888B722EC0C52700619BF0 /* DeviceReportHostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceReportHostView.swift; sourceTree = "<group>"; };
+		72888B792EC1933700619BF0 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		72888B7B2EC1933800619BF0 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		72888BA32EC19C9B00619BF0 /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityManager.swift; sourceTree = "<group>"; };
+		72888BA92EC1A21D00619BF0 /* LockRunWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = LockRunWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		72888BC22EC1A24800619BF0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		72888BC32EC1A24800619BF0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		72888BC52EC1A24800619BF0 /* LockRunWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LockRunWidgetBundle.swift; sourceTree = "<group>"; };
+		72888BD52EC1A33000619BF0 /* RunningActivityWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningActivityWidget.swift; sourceTree = "<group>"; };
+		72888BD82EC1A42800619BF0 /* RunningAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningAttributes.swift; sourceTree = "<group>"; };
+		72888BDD2EC1B25800619BF0 /* PauseRunningIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PauseRunningIntent.swift; sourceTree = "<group>"; };
+		72888BE02EC1B27900619BF0 /* ResumeRunningIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResumeRunningIntent.swift; sourceTree = "<group>"; };
+		72888BE32EC1B34500619BF0 /* NotificationName+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extension.swift"; sourceTree = "<group>"; };
 		7289FC742E98B84200595EF7 /* LockRun.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LockRun.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FC832E98B84400595EF7 /* LockRunTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockRunTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7289FC8D2E98B84400595EF7 /* LockRunUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LockRunUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -266,6 +318,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		72888B1C2EC075C600619BF0 /* Exceptions for "ActivityRe" folder in "LockRun" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				ScreenTimeActivityReport.swift,
+			);
+			target = 7289FC732E98B84200595EF7 /* LockRun */;
+		};
 		7289FCFD2E98DC6B00595EF7 /* Exceptions for "ActivityMo" folder in "ActivityMo" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -337,6 +396,7 @@
 		7289FD072E98DC8B00595EF7 /* ActivityRe */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
+				72888B1C2EC075C600619BF0 /* Exceptions for "ActivityRe" folder in "LockRun" target */,
 				7289FD132E98DC8B00595EF7 /* Exceptions for "ActivityRe" folder in "ActivityRe" target */,
 			);
 			path = ActivityRe;
@@ -372,6 +432,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72888BA62EC1A21D00619BF0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72888BAB2EC1A21D00619BF0 /* SwiftUI.framework in Frameworks */,
+				72888BAA2EC1A21D00619BF0 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +545,7 @@
 			isa = PBXGroup;
 			children = (
 				723F5D092E9B79EA00E6AA23 /* Image+Extension.swift */,
+				72888BE32EC1B34500619BF0 /* NotificationName+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -543,6 +613,44 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
+		72888BC82EC1A24800619BF0 /* LockRunWidget */ = {
+			isa = PBXGroup;
+			children = (
+				72888BC22EC1A24800619BF0 /* Assets.xcassets */,
+				72888BC32EC1A24800619BF0 /* Info.plist */,
+				72888BC52EC1A24800619BF0 /* LockRunWidgetBundle.swift */,
+				72888BDB2EC1A45500619BF0 /* Intent */,
+				72888BD42EC1A32900619BF0 /* View */,
+				72888BD02EC1A2E800619BF0 /* Model */,
+			);
+			path = LockRunWidget;
+			sourceTree = "<group>";
+		};
+		72888BD02EC1A2E800619BF0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				72888BD82EC1A42800619BF0 /* RunningAttributes.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		72888BD42EC1A32900619BF0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				72888BD52EC1A33000619BF0 /* RunningActivityWidget.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		72888BDB2EC1A45500619BF0 /* Intent */ = {
+			isa = PBXGroup;
+			children = (
+				72888BDD2EC1B25800619BF0 /* PauseRunningIntent.swift */,
+				72888BE02EC1B27900619BF0 /* ResumeRunningIntent.swift */,
+			);
+			path = Intent;
+			sourceTree = "<group>";
+		};
 		7289FC6B2E98B84200595EF7 = {
 			isa = PBXGroup;
 			children = (
@@ -556,6 +664,7 @@
 				726DDB852EBB213700D12714 /* LockRunWatchApp Watch App */,
 				726DDB582EBB14A700D12714 /* LockRunWatchApp Watch AppTests */,
 				726DDB622EBB14A700D12714 /* LockRunWatchApp Watch AppUITests */,
+				72888BC82EC1A24800619BF0 /* LockRunWidget */,
 				7289FCF22E98DC6A00595EF7 /* Frameworks */,
 				7289FC752E98B84200595EF7 /* Products */,
 			);
@@ -573,6 +682,7 @@
 				726DDB492EBB14A500D12714 /* LockRunWatchApp Watch App.app */,
 				726DDB552EBB14A700D12714 /* LockRunWatchApp Watch AppTests.xctest */,
 				726DDB5F2EBB14A700D12714 /* LockRunWatchApp Watch AppUITests.xctest */,
+				72888BA92EC1A21D00619BF0 /* LockRunWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -631,6 +741,7 @@
 				72DDBC322EA8A04B0020E9C7 /* DateManager.swift */,
 				726DDB3F2EBA1A0F00D12714 /* PermissionManager.swift */,
 				726DDBB22EBB38D000D12714 /* WatchSessionManager.swift */,
+				72888BA32EC19C9B00619BF0 /* LiveActivityManager.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -641,6 +752,8 @@
 				7289FCF32E98DC6A00595EF7 /* DeviceActivity.framework */,
 				72D0D88C2EAB355E000F155C /* ManagedSettings.framework */,
 				72D0D88E2EAB355F000F155C /* ManagedSettingsUI.framework */,
+				72888B792EC1933700619BF0 /* WidgetKit.framework */,
+				72888B7B2EC1933800619BF0 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -728,6 +841,7 @@
 			children = (
 				72E9AE3E2E9F6B85003DB4F6 /* AnalyzeView.swift */,
 				72E9AE752E9F7B94003DB4F6 /* AnalyzeReducer.swift */,
+				72888B722EC0C52700619BF0 /* DeviceReportHostView.swift */,
 			);
 			path = Analyze;
 			sourceTree = "<group>";
@@ -775,6 +889,7 @@
 				726DDB412EBA1D0F00D12714 /* PermissionClient.swift */,
 				726DDB432EBA2A5200D12714 /* HealthKitClient.swift */,
 				72888AEC2EBDBA3400619BF0 /* PedometerClient.swift */,
+				72888B122EC0682E00619BF0 /* DeviceActivityClient.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -808,6 +923,7 @@
 				726DDB452EBB14A500D12714 /* Sources */,
 				726DDB462EBB14A500D12714 /* Frameworks */,
 				726DDB472EBB14A500D12714 /* Resources */,
+				72888B8C2EC1933A00619BF0 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -866,6 +982,25 @@
 			productReference = 726DDB5F2EBB14A700D12714 /* LockRunWatchApp Watch AppUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		72888BA82EC1A21D00619BF0 /* LockRunWidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 72888BBD2EC1A21F00619BF0 /* Build configuration list for PBXNativeTarget "LockRunWidgetExtension" */;
+			buildPhases = (
+				72888BA52EC1A21D00619BF0 /* Sources */,
+				72888BA62EC1A21D00619BF0 /* Frameworks */,
+				72888BA72EC1A21D00619BF0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LockRunWidgetExtension;
+			packageProductDependencies = (
+			);
+			productName = LockRunWidgetExtension;
+			productReference = 72888BA92EC1A21D00619BF0 /* LockRunWidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		7289FC732E98B84200595EF7 /* LockRun */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7289FC972E98B84400595EF7 /* Build configuration list for PBXNativeTarget "LockRun" */;
@@ -884,6 +1019,7 @@
 				7289FD112E98DC8B00595EF7 /* PBXTargetDependency */,
 				72D0D8962EAB355F000F155C /* PBXTargetDependency */,
 				726DDB682EBB14A700D12714 /* PBXTargetDependency */,
+				72888BBB2EC1A21F00619BF0 /* PBXTargetDependency */,
 			);
 			name = LockRun;
 			packageProductDependencies = (
@@ -1027,6 +1163,9 @@
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = 726DDB482EBB14A500D12714;
 					};
+					72888BA82EC1A21D00619BF0 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					7289FC732E98B84200595EF7 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -1076,6 +1215,7 @@
 				726DDB482EBB14A500D12714 /* LockRunWatchApp Watch App */,
 				726DDB542EBB14A700D12714 /* LockRunWatchApp Watch AppTests */,
 				726DDB5E2EBB14A700D12714 /* LockRunWatchApp Watch AppUITests */,
+				72888BA82EC1A21D00619BF0 /* LockRunWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -1100,6 +1240,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		72888BA72EC1A21D00619BF0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72888BCE2EC1A24800619BF0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1178,6 +1326,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		72888BA52EC1A21D00619BF0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72888BDC2EC1AB9600619BF0 /* Image+Extension.swift in Sources */,
+				72888BE42EC1B34500619BF0 /* NotificationName+Extension.swift in Sources */,
+				72888BDA2EC1A42800619BF0 /* RunningAttributes.swift in Sources */,
+				72888BD62EC1A33000619BF0 /* RunningActivityWidget.swift in Sources */,
+				72888BDE2EC1B25800619BF0 /* PauseRunningIntent.swift in Sources */,
+				72888BE22EC1B27900619BF0 /* ResumeRunningIntent.swift in Sources */,
+				72888BCB2EC1A24800619BF0 /* LockRunWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		7289FC702E98B84200595EF7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1194,15 +1356,19 @@
 				726DDBB32EBB38D000D12714 /* WatchSessionManager.swift in Sources */,
 				72E9AEA32EA2104D003DB4F6 /* PlanningView.swift in Sources */,
 				72F602732EAF58FE007D89AF /* LottieView.swift in Sources */,
+				72888BDF2EC1B25800619BF0 /* PauseRunningIntent.swift in Sources */,
 				72DDBC4D2EA920C80020E9C7 /* HeaderView.swift in Sources */,
 				72E9AEA52EA21072003DB4F6 /* PlanningReducer.swift in Sources */,
 				72E9AE7F2EA0DC26003DB4F6 /* RunningGoalCard.swift in Sources */,
 				723F5D0A2E9B79EA00E6AA23 /* Image+Extension.swift in Sources */,
 				723F5D192E9CBF9300E6AA23 /* PermissionReducer.swift in Sources */,
+				72888BE52EC1B34500619BF0 /* NotificationName+Extension.swift in Sources */,
 				72DDBC362EA8A2BE0020E9C7 /* CalendarMainView.swift in Sources */,
+				72888BE12EC1B27900619BF0 /* ResumeRunningIntent.swift in Sources */,
 				72DDBC382EA8A2D80020E9C7 /* CalendarReducer.swift in Sources */,
 				72DDBC332EA8A04B0020E9C7 /* DateManager.swift in Sources */,
 				72E9AE382E9F6A4C003DB4F6 /* CustomTabbar.swift in Sources */,
+				72888B132EC0682E00619BF0 /* DeviceActivityClient.swift in Sources */,
 				72E9AF512EA6172A003DB4F6 /* RunningGoalData.swift in Sources */,
 				72E9AE762E9F7B94003DB4F6 /* AnalyzeReducer.swift in Sources */,
 				72E9AE7A2E9F833B003DB4F6 /* PermissionStatusData.swift in Sources */,
@@ -1210,6 +1376,7 @@
 				72DDBC532EA92E1E0020E9C7 /* DateChangeReducer.swift in Sources */,
 				72E9AE3D2E9F6B70003DB4F6 /* HomeView.swift in Sources */,
 				72DDBC552EA930160020E9C7 /* DateChangeView.swift in Sources */,
+				72888B732EC0C52700619BF0 /* DeviceReportHostView.swift in Sources */,
 				726DDB442EBA2A5200D12714 /* HealthKitClient.swift in Sources */,
 				723F5D142E9B8A2F00E6AA23 /* PermissionView.swift in Sources */,
 				723F5D042E9B77A400E6AA23 /* Font.swift in Sources */,
@@ -1217,14 +1384,17 @@
 				7289FD212E99409B00595EF7 /* OnboardingView.swift in Sources */,
 				723F5D0F2E9B828E00E6AA23 /* OnboardingReducer.swift in Sources */,
 				723F5D172E9BD2C700E6AA23 /* PermissionExplainView.swift in Sources */,
+				72888BA42EC19C9B00619BF0 /* LiveActivityManager.swift in Sources */,
 				72DDBC512EA92C350020E9C7 /* YearMonthHeaderView.swift in Sources */,
 				723F5D1B2E9D2AC900E6AA23 /* CustomNavigationBarModifier.swift in Sources */,
 				72E9AE7C2E9F838A003DB4F6 /* SwiftDataDBManager.swift in Sources */,
+				72888BD92EC1A42800619BF0 /* RunningAttributes.swift in Sources */,
 				723F5D072E9B77FF00E6AA23 /* CustomFontModifier.swift in Sources */,
 				72E9AE3F2E9F6B85003DB4F6 /* AnalyzeView.swift in Sources */,
 				723F5D0D2E9B7A6600E6AA23 /* CommonButton.swift in Sources */,
 				723F5D012E9B772E00E6AA23 /* CommonText.swift in Sources */,
 				72E9AEA92EA3CA6C003DB4F6 /* StoredBlockSelection.swift in Sources */,
+				72888BD72EC1A33000619BF0 /* RunningActivityWidget.swift in Sources */,
 				72E9AEA72EA3C9DB003DB4F6 /* AppGroup.swift in Sources */,
 				72DDBC3D2EA8B1CF0020E9C7 /* DatesGridView.swift in Sources */,
 				72E9AE722E9F7A0F003DB4F6 /* TabbarContainerView.swift in Sources */,
@@ -1268,6 +1438,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72888B1A2EC0753200619BF0 /* AppGroup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1295,6 +1466,11 @@
 			isa = PBXTargetDependency;
 			target = 726DDB482EBB14A500D12714 /* LockRunWatchApp Watch App */;
 			targetProxy = 726DDB672EBB14A700D12714 /* PBXContainerItemProxy */;
+		};
+		72888BBB2EC1A21F00619BF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 72888BA82EC1A21D00619BF0 /* LockRunWidgetExtension */;
+			targetProxy = 72888BBA2EC1A21F00619BF0 /* PBXContainerItemProxy */;
 		};
 		7289FC852E98B84400595EF7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -1470,6 +1646,60 @@
 			};
 			name = Release;
 		};
+		72888BBE2EC1A21F00619BF0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LockRunWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LockRunWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.LockRunWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		72888BBF2EC1A21F00619BF0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QQN262X7KM;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = LockRunWidget/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = LockRunWidget;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.LockRunWidget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		7289FC952E98B84400595EF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1610,6 +1840,7 @@
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "앱이 실행되지 않을 때에도 달린 거리를 기록하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱을 사용하는 동안 달린 거리를 측정하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "러닝 중 걸음 수와 속도를 측정하기 위해 모션 데이터를 사용합니다.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1652,6 +1883,7 @@
 				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "앱이 실행되지 않을 때에도 달린 거리를 기록하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "앱을 사용하는 동안 달린 거리를 측정하기 위해 위치 정보가 필요합니다.";
 				INFOPLIST_KEY_NSMotionUsageDescription = "러닝 중 걸음 수와 속도를 측정하기 위해 모션 데이터를 사용합니다.";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -1760,6 +1992,7 @@
 				INFOPLIST_FILE = ActivityMo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ActivityMo;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1769,9 +2002,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.ActivityMo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1786,6 +2023,7 @@
 				INFOPLIST_FILE = ActivityMo/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ActivityMo;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1795,9 +2033,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.ActivityMo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1812,6 +2054,7 @@
 				INFOPLIST_FILE = ActivityRe/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ActivityRe;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1821,9 +2064,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.ActivityRe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1838,6 +2085,7 @@
 				INFOPLIST_FILE = ActivityRe/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ActivityRe;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1847,9 +2095,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.ActivityRe;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1864,6 +2116,7 @@
 				INFOPLIST_FILE = ShieldConfiguration/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShieldConfiguration;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1873,9 +2126,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.ShieldConfiguration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1890,6 +2147,7 @@
 				INFOPLIST_FILE = ShieldConfiguration/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = ShieldConfiguration;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1899,9 +2157,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Jun.LockRun.ShieldConfiguration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -1931,6 +2193,15 @@
 			buildConfigurations = (
 				726DDB722EBB14A700D12714 /* Debug */,
 				726DDB732EBB14A700D12714 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		72888BBD2EC1A21F00619BF0 /* Build configuration list for PBXNativeTarget "LockRunWidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72888BBE2EC1A21F00619BF0 /* Debug */,
+				72888BBF2EC1A21F00619BF0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

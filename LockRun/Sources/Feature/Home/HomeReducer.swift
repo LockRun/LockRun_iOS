@@ -10,11 +10,13 @@ import ComposableArchitecture
 import _MapKit_SwiftUI
 import FamilyControls
 import ManagedSettings
+import ActivityKit
 
 @Reducer
 struct Home: Reducer {
     
     private enum LocationStreamID: Hashable {}
+    
     enum WeatherError: Error, Equatable {
         case network
         case decoding
@@ -49,6 +51,7 @@ struct Home: Reducer {
         var pace: String? = nil
         var cadence: Int = 0
         var isAuthorized: Bool = false
+        var isGoalAchieved: Bool = false
     }
     
     enum Action: BindableAction, Equatable {
@@ -90,6 +93,7 @@ struct Home: Reducer {
     @Dependency(\.pedometerClient) var pedometerClient
     
     private let watchSession = WatchSessionManager.shared
+    private let liveActivity = LiveActivityManager.shared
     
     var body: some ReducerOf<Self> {
         BindingReducer()
@@ -138,23 +142,34 @@ struct Home: Reducer {
                         }
                     }
                         .cancellable(id: "watchBPMStream", cancelInFlight: true),
-                    
                         .run { send in
-                            let coord = await locationClient.request()
-                            let name = await locationClient.resolvePlaceName(coord)
-                            let goal = SwiftDataDBManager.shared.fetchRunningGoal()
-                            let stored = FamilyActivityStorage.load()
-                            let result = try await pedometerClient.requestAuthorization()
-                            await send(.authorizationResponse(result))
-                            await send(.locationUpdated((Coordinate(latitude: coord.latitude,
-                                                                    longitude: coord.longitude))))
-                            await send(.placeResolved(name))
-                            await send(.fetchWeather)
-                            await send(.runningGoalLoaded(goal))
-                            if let stored = stored {
-                                await send(.appsLoaded(stored.apps))
+                            for await notification in NotificationCenter.default.notifications(named: .pauseRunningRequested) {
+                                await send(.pauseRunning)
                             }
                         }
+                        .cancellable(id: "pauseIntent", cancelInFlight: true),
+                        .run { send in
+                            for await notification in NotificationCenter.default.notifications(named: .resumeRunningRequested) {
+                                await send(.resumeRunning)
+                            }
+                        }
+                        .cancellable(id: "resumeIntent", cancelInFlight: true),
+                    .run { send in
+                        let coord = await locationClient.request()
+                        let name = await locationClient.resolvePlaceName(coord)
+                        let goal = SwiftDataDBManager.shared.fetchRunningGoal()
+                        let stored = FamilyActivityStorage.load()
+                        let result = try await pedometerClient.requestAuthorization()
+                        await send(.authorizationResponse(result))
+                        await send(.locationUpdated((Coordinate(latitude: coord.latitude,
+                                                                longitude: coord.longitude))))
+                        await send(.placeResolved(name))
+                        await send(.fetchWeather)
+                        await send(.runningGoalLoaded(goal))
+                        if let stored = stored {
+                            await send(.appsLoaded(stored.apps))
+                        }
+                    }
                 )
                 
             case let .appsLoaded(apps):
@@ -170,6 +185,19 @@ struct Home: Reducer {
                     let newCoord = Coordinate(latitude: cl.latitude, longitude: cl.longitude)
                     state.path.append(newCoord)
                     state.totalDistance = state.path.totalDistanceInKm
+                    
+                    if let goal = state.runningGoal?.distanceGoal,
+                       state.totalDistance ?? 0 >= Double(goal),
+                       !state.isGoalAchieved {
+                        state.isGoalAchieved = true
+                        
+                        //해제 시점
+                        let store = ManagedSettingsStore(named: .studyLock)
+                        store.shield.applications = []
+                        store.shield.applicationCategories = nil
+                        store.shield.webDomains = []
+                        
+                    }
                 }
                 return .none
                 
@@ -210,6 +238,14 @@ struct Home: Reducer {
                 if let coord = state.coord {
                     state.path = [coord]
                 }
+                
+                liveActivity.start(
+                    goalDistance: Double(state.runningGoal?.distanceGoal ?? Int(5.0)),
+                    pace: state.pace ?? "--'--\"",
+                    elapsedTime: Int(state.elapsedTime),
+                    distance: state.totalDistance ?? 0.0
+                )
+                
                 return .merge(
                     .send(.notifyTabbarHide(true)),
                     .send(.startHeartRate),
@@ -269,6 +305,14 @@ struct Home: Reducer {
             case .stopRunning:
                 state.runningState = .stop
                 watchSession.sendAction("stop")
+                
+                liveActivity.stop(
+                    elapsedTime: Int(state.elapsedTime),
+                    pace: state.pace ?? "--'--\"",
+                    distance: state.totalDistance ?? 0.0
+                )
+                
+                
                 //                state.elapsedTime = 0
                 //                state.timeText = "00:00:00"
                 //                state.heartRateBPM = nil
@@ -292,8 +336,17 @@ struct Home: Reducer {
                 let seconds = Int(state.elapsedTime) % 60
                 
                 state.timeText = String(format: "%02d:%02d:%02d", hours, minutes, seconds)
+                let elapsed = Int(state.elapsedTime)
+                let distance = state.totalDistance ?? 0.0
+                let pace = state.pace ?? "--'--\""
                 //TODO: 일정 시간마다 알림용 액션만 발생
-                return .none
+                return .run { _ in
+                    liveActivity.update(
+                        elapsedTime: elapsed,
+                        pace: pace,
+                        distance: distance
+                    )
+                }
                 
             case .stopTimer:
                 return .cancel(id: "elapsedTimer")

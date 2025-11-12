@@ -17,12 +17,10 @@ class WatchAppDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
         // 워치 앱이 완전히 켜졌을 때든
         // 백그라운드에서 깨웠을 때든
         // 항상 여기부터 불린다.
-        print("⌚️ [WatchAppDelegate] launched / background wake")
         WKInterfaceDevice.current().play(.start)
         if WCSession.isSupported() {
             session.delegate = self
             session.activate()
-            print(" WCSession activated in WatchAppDelegate")
         }
     }
     
@@ -52,11 +50,9 @@ class WatchAppDelegate: NSObject, WKApplicationDelegate, WCSessionDelegate {
         }
     }
     
-    // iPhone이 transferUserInfo(["wake": true]) 보냄 → 여기로 옴
+    // iPhone이 transferUserInfo(["wake": true]) 보냄 여기로 옴
     func session(_ session: WCSession, didReceiveUserInfo userInfo: [String : Any]) {
-        print("📩 received userInfo:", userInfo)
         if userInfo["wake"] as? Bool == true {
-            print("✅ wake received -> starting workout")
             workoutManager.start()
         }
     }

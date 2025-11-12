@@ -11,9 +11,9 @@ import ComposableArchitecture
 struct ProfileView: View {
     
     @Bindable var store: StoreOf<Profile>
-    private var appVersion: String {
-        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
-    }
+//    private var appVersion: String {
+//        Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "1.0.0"
+//    }
     
     var body: some View {
         ZStack {
@@ -108,7 +108,9 @@ struct ProfileView: View {
                         }
                     }
                     
-                    Text("버전 \(appVersion)")
+//                    Text("버전 \(appVersion)")
+                    
+                    Text("버전 1.0.0")
                         .font(.caption)
                         .foregroundColor(.gray)
                         .padding(.bottom, 80)

@@ -77,6 +77,24 @@ extension SwiftDataDBManager {
         }
     }
     
+    func deleteRunningGoal() {
+        do {
+            let descriptor = FetchDescriptor<RunningGoalData>()
+            let goals = try modelContext.fetch(descriptor)
+            
+            if goals.isEmpty {
+                return
+            }
+            
+            goals.forEach { modelContext.delete($0) }
+            try modelContext.save()
+            print("삭제 성공")
+            
+        } catch {
+            print("삭제 실패: \(error)")
+        }
+    }
+    
     func fetchRunningGoal() -> RunningGoalData? {
         do {
             let descriptor = FetchDescriptor<RunningGoalData>()
