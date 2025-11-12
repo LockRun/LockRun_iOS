@@ -45,7 +45,7 @@ final class WorkoutManager: NSObject,
                     self.startWorkoutSession()
                 }
             } else {
-                print("HealthKit auth failed")
+                print("실패")
             }
         }
     }
@@ -77,21 +77,17 @@ final class WorkoutManager: NSObject,
             let startDate = Date()
             workoutSession.startActivity(with: startDate)
             workoutBuilder.beginCollection(withStart: startDate) { _, _ in }
-            
-            print("Workout session started in background")
         } catch {
-            print("Couldn't start workout:", error)
+            print("에러:", error)
         }
     }
     
     func pause() {
         session?.pause()
-        print("⏸ paused workout")
     }
     
     func resume() {
         session?.resume()
-        print("resumed workout")
     }
     
     func stop() {
@@ -100,7 +96,6 @@ final class WorkoutManager: NSObject,
         builder?.endCollection(withEnd: Date()) { success, _ in
             if success {
                 self.builder?.finishWorkout { _, _ in
-                    print("workout ended completely")
                     self.session = nil
                     self.builder = nil
                 }
@@ -127,7 +122,7 @@ final class WorkoutManager: NSObject,
     
     func workoutSession(_ workoutSession: HKWorkoutSession,
                         didFailWithError error: Error) {
-        print("workoutSession error:", error)
+        print("error:", error)
     }
     
     func workoutSession(_ workoutSession: HKWorkoutSession,
@@ -135,7 +130,7 @@ final class WorkoutManager: NSObject,
                         from fromState: HKWorkoutSessionState,
                         date: Date) {
         if toState == .ended {
-            print("workout ended state")
+            print("end")
         }
     }
     
@@ -146,13 +141,13 @@ final class WorkoutManager: NSObject,
         
         if wc.isReachable {
             wc.sendMessage(["bpm": bpm], replyHandler: nil) { error in
-                print("sendMessage bpm error:", error.localizedDescription)
+                print("error:", error.localizedDescription)
             }
         } else {
             do {
                 try wc.updateApplicationContext(["bpm": bpm])
             } catch {
-                print("updateApplicationContext error:", error.localizedDescription)
+                print("error:", error.localizedDescription)
             }
         }
     }

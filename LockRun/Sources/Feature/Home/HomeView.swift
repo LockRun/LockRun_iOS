@@ -304,19 +304,49 @@ private extension HomeView {
                     Text("러닝 목표")
                         .foregroundColor(.white)
                     
-                    ProgressView(value: store.totalDistance,
-                                 total:  Double(store.runningGoal?.distanceGoal ?? 0))
-                    .progressViewStyle(.linear)
-                    .tint(.blue)
+                    if let goalDistance = store.runningGoal?.distanceGoal, goalDistance > 0 {
+//                        ProgressView(
+//                            value: store.totalDistance ?? 0,
+//                            total: Double(goalDistance)
+//                        )
+//                        .progressViewStyle(.linear)
+//                        .tint(.blue)
+                        
+                        ProgressView(
+                            value: min(store.totalDistance ?? 0, Double(goalDistance)),
+                            total: Double(goalDistance)
+                        )
+                        .progressViewStyle(.linear)
+                        .tint(store.isGoalAchieved ? .green : .blue)
+                    } else {
+                        ProgressView(value: 0, total: 1)
+                            .progressViewStyle(.linear)
+                            .tint(.gray)
+                    }
                     
                     HStack {
-                        Text(String(format: "%.2fKm", store.totalDistance ?? 0))
-                            .foregroundColor(.white)
+                        if store.isGoalAchieved {
+                            Text("🎉 목표 \(store.runningGoal?.distanceGoal ?? 0)km 달성 완료!")
+                                .foregroundColor(.green)
+                                .font(.caption)
+                                .fontWeight(.semibold)
+                        } else {
+                            Text(String(format: "%.2fKm", store.totalDistance ?? 0))
+                                .foregroundColor(.white)
+                            
+                            Spacer()
+                            
+                            Text("\(store.runningGoal?.distanceGoal ?? 0)Km")
+                                .foregroundColor(.gray)
+                        }
                         
-                        Spacer()
-                        
-                        Text("\(store.runningGoal?.distanceGoal ?? 0)Km")
-                            .foregroundColor(.gray)
+//                        Text(String(format: "%.2fKm", store.totalDistance ?? 0))
+//                            .foregroundColor(.white)
+//                        
+//                        Spacer()
+//                        
+//                        Text("\(store.runningGoal?.distanceGoal ?? 0)Km")
+//                            .foregroundColor(.gray)
                     }
                     .font(.caption)
                 }

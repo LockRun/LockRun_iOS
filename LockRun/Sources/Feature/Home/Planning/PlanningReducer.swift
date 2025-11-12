@@ -31,6 +31,8 @@ struct Planning: Reducer {
         case deleteButtonTapped
     }
     
+    private let db = SwiftDataDBManager.shared
+    
     var body: some ReducerOf<Self> {
         BindingReducer()
         
@@ -53,10 +55,10 @@ struct Planning: Reducer {
                 
                 return .run { send in
                     do {
-                        try await DeviceActivityManager.startDailySchedule(name: "LockRun-\(UUID().uuidString)",
+                        try await DeviceActivityManager.startDailySchedule(name: "LockRunDailySchedule",
                                                                            start: start,
                                                                            end: end)
-                        SwiftDataDBManager.shared.saveRunningGoal(
+                        db.saveRunningGoal(
                             title: "러닝 목표",
                             distanceGoal: distance,
                             startTime: startTime,
@@ -85,6 +87,12 @@ struct Planning: Reducer {
             case .deleteButtonTapped:
                 
                 return .run { send in
+                    do {
+                        try await DeviceActivityManager.stopMonitoring(name: "LockRunDailySchedule")
+                        db.deleteRunningGoal()
+                    } catch {
+                        print("실패: \(error.localizedDescription)")
+                    }
                     await send(.cancelButtonTapped)
                 }
                 
