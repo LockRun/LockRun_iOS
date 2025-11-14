@@ -305,13 +305,6 @@ private extension HomeView {
                         .foregroundColor(.white)
                     
                     if let goalDistance = store.runningGoal?.distanceGoal, goalDistance > 0 {
-//                        ProgressView(
-//                            value: store.totalDistance ?? 0,
-//                            total: Double(goalDistance)
-//                        )
-//                        .progressViewStyle(.linear)
-//                        .tint(.blue)
-                        
                         ProgressView(
                             value: min(store.totalDistance ?? 0, Double(goalDistance)),
                             total: Double(goalDistance)
@@ -339,14 +332,6 @@ private extension HomeView {
                             Text("\(store.runningGoal?.distanceGoal ?? 0)Km")
                                 .foregroundColor(.gray)
                         }
-                        
-//                        Text(String(format: "%.2fKm", store.totalDistance ?? 0))
-//                            .foregroundColor(.white)
-//                        
-//                        Spacer()
-//                        
-//                        Text("\(store.runningGoal?.distanceGoal ?? 0)Km")
-//                            .foregroundColor(.gray)
                     }
                     .font(.caption)
                 }
