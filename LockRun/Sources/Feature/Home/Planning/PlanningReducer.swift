@@ -52,33 +52,68 @@ struct Planning: Reducer {
                                                             from: startTime)
                 let end = Calendar.current.dateComponents([.hour, .minute],
                                                           from: endTime)
-                
-                return .run { send in
-                    do {
-                        try await DeviceActivityManager.startDailySchedule(name: "LockRunDailySchedule",
-                                                                           start: start,
-                                                                           end: end)
-                        db.saveRunningGoal(
-                            title: "러닝 목표",
-                            distanceGoal: distance,
-                            startTime: startTime,
-                            endTime: endTime
-                        )
-                    }  catch {
-                        print("실패: \(error.localizedDescription)")
-                    }
-                    
-                    let now = Date()
-                    if now >= startTime && now <= endTime {
-                        if let s = FamilyActivityStorage.load() {
-                            let store = ManagedSettingsStore(named: .studyLock)
-                            store.shield.applications = Set(s.apps)
-                            store.shield.applicationCategories = .specific(Set(s.categories))
-                            store.shield.webDomains = Set(s.webDomains)
+                if state.isEditMode == false {
+                    return .run { send in
+                        do {
+                            try await DeviceActivityManager.startDailySchedule(name: "LockRunDailySchedule",
+                                                                               start: start,
+                                                                               end: end)
+                            db.saveRunningGoal(
+                                title: "러닝 목표",
+                                distanceGoal: distance,
+                                startTime: startTime,
+                                endTime: endTime
+                            )
+                        }  catch {
+                            print("실패: \(error.localizedDescription)")
                         }
+                        
+                        // 지금이 잠금시간이라면 즉시 차단
+                        let now = Date()
+                        if now >= startTime && now <= endTime {
+                            if let s = FamilyActivityStorage.load() {
+                                let store = ManagedSettingsStore(named: .studyLock)
+                                store.shield.applications = Set(s.apps)
+                                store.shield.applicationCategories = .specific(Set(s.categories))
+                                store.shield.webDomains = Set(s.webDomains)
+                            }
+                        }
+                        
+                        await send(.cancelButtonTapped)
                     }
-                    
-                    await send(.cancelButtonTapped)
+                } else {
+                    return .run { send in
+                        do {
+                            try await DeviceActivityManager.stopMonitoring(name: "LockRunDailySchedule")
+                            try await DeviceActivityManager.startDailySchedule(
+                                name: "LockRunDailySchedule",
+                                start: start,
+                                end: end
+                            )
+                            
+                            db.updateRunningGoal(
+                                title: "러닝 목표",
+                                distanceGoal: distance,
+                                startTime: startTime,
+                                endTime: endTime
+                            )
+                        }  catch {
+                            print("실패: \(error.localizedDescription)")
+                        }
+                        
+                        // 지금이 잠금시간이라면 즉시 차단
+                        let now = Date()
+                        if now >= startTime && now <= endTime {
+                            if let s = FamilyActivityStorage.load() {
+                                let store = ManagedSettingsStore(named: .studyLock)
+                                store.shield.applications = Set(s.apps)
+                                store.shield.applicationCategories = .specific(Set(s.categories))
+                                store.shield.webDomains = Set(s.webDomains)
+                            }
+                        }
+                        
+                        await send(.cancelButtonTapped)
+                    }
                 }
                 
             case .cancelButtonTapped:

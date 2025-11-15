@@ -134,11 +134,33 @@ private extension HomeView {
                     .fill(Color.black.opacity(0.3))
                     .frame(height: 44)
                     .overlay(
-                        Text("오늘도 어제보다 강한 나를 만들어보자!")
-                            .foregroundColor(.white)
-                            .font(.subheadline)
+                        ZStack {
+                            HStack {
+                                Image(systemName: store.runningState == .running ? "figure.run" : "figure.stand")
+                                    .symbolEffect(.pulse, options: .repeating)
+                                    .foregroundColor(.white)
+                                    .font(.system(size: 18, weight: .semibold))
+                                
+                                Text(store.runningMotion)
+                                    .foregroundColor(.white)
+                                    .font(.subheadline)
+                            }
+                            
+                            HStack {
+                                Spacer()
+                                
+                                Button {
+                                    //TODO: 정보 숨김
+                                } label: {
+                                    Image(systemName: "eye.slash")
+                                        .foregroundColor(.white.opacity(0.8))
+                                        .font(.system(size: 16, weight: .medium))
+                                        .padding(8)
+                                }
+                            }
+                        }
                     )
-                    .padding(.horizontal, 32)
+                    .padding(.horizontal, 100)
                 
                 Text(store.timeText)
                     .font(.system(size: 36, weight: .bold))
@@ -198,7 +220,8 @@ private extension HomeView {
                             }
                         }
                     }
-                    
+                }
+                HStack(spacing: 24) {
                     VStack {
                         Image(systemName: "location.fill")
                             .foregroundColor(.yellow)
