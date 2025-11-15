@@ -318,7 +318,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		72888B1C2EC075C600619BF0 /* Exceptions for "ActivityRe" folder in "LockRun" target */ = {
+		72888BE92EC6FB2900619BF0 /* Exceptions for "ActivityRe" folder in "LockRun" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				ScreenTimeActivityReport.swift,
@@ -396,7 +396,7 @@
 		7289FD072E98DC8B00595EF7 /* ActivityRe */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				72888B1C2EC075C600619BF0 /* Exceptions for "ActivityRe" folder in "LockRun" target */,
+				72888BE92EC6FB2900619BF0 /* Exceptions for "ActivityRe" folder in "LockRun" target */,
 				7289FD132E98DC8B00595EF7 /* Exceptions for "ActivityRe" folder in "ActivityRe" target */,
 			);
 			path = ActivityRe;

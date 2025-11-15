@@ -95,6 +95,35 @@ extension SwiftDataDBManager {
         }
     }
     
+    func updateRunningGoal(title: String? = nil,
+                           distanceGoal: Int? = nil,
+                           startTime: Date? = nil,
+                           endTime: Date? = nil) {
+        do {
+            let descriptor = FetchDescriptor<RunningGoalData>()
+            guard let existing = try modelContext.fetch(descriptor).first else {
+                return
+            }
+            
+            if let title = title {
+                existing.title = title
+            }
+            if let distanceGoal = distanceGoal {
+                existing.distanceGoal = distanceGoal
+            }
+            if let startTime = startTime {
+                existing.startTime = startTime
+            }
+            if let endTime = endTime {
+                existing.endTime = endTime
+            }
+            
+            try modelContext.save()
+        } catch {
+            print("업데이트 실패: \(error)")
+        }
+    }
+    
     func fetchRunningGoal() -> RunningGoalData? {
         do {
             let descriptor = FetchDescriptor<RunningGoalData>()

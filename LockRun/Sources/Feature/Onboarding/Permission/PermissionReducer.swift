@@ -5,11 +5,8 @@
 //  Created by 전준영 on 10/13/25.
 //
 
-import SwiftUI
-import FamilyControls
+import Foundation
 import ComposableArchitecture
-import CoreMotion
-import AVFoundation
 
 enum PermissionStatus: Equatable {
     case notRequested
@@ -44,8 +41,8 @@ struct Permission: Reducer {
                 case 1:
                     return .run { send in
                         do {
-                            try await AuthorizationCenter.shared.requestAuthorization(for: .individual)
-                            await send(.stepGranted(1))
+                            let granted = try await permissionClient.requestScreenTime()
+                            await send(granted ? .stepGranted(1) : .stepDenied(1))
                         } catch {
                             await send(.stepDenied(1))
                         }
@@ -60,71 +57,23 @@ struct Permission: Reducer {
                             await send(.stepDenied(2))
                         }
                     }
-
-//                    return .run { send in
-//                        //모션이 가능한 폰인지 확인(시뮬은 전부 안됨, iPad도 안됨)
-//                        guard CMMotionActivityManager.isActivityAvailable() else {
-//                            await send(.stepDenied(2))
-//                            return
-//                        }
-//                        
-//                        let manager = CMMotionActivityManager()
-//                        
-//                        let status = await withCheckedContinuation { continuation in
-//                            manager.startActivityUpdates(to: .main) { _ in
-//                                continuation.resume(returning: CMMotionActivityManager.authorizationStatus())
-//                                manager.stopActivityUpdates()
-//                            }
-//                        }
-//                        
-//                        await send(status == .authorized ? .stepGranted(2) : .stepDenied(2))
-//                    }
                     
                 case 3:
                     return .run { send in
-                        let manager = CLLocationManager()
-                        
-                        switch manager.authorizationStatus {
-                        case .authorizedAlways, .authorizedWhenInUse:
-                            await send(.stepGranted(3))
-                            
-                        case .denied, .restricted:
-                            await send(.stepDenied(3))
-                            
-                        case .notDetermined:
-                            manager.requestWhenInUseAuthorization()
-                            try? await Task.sleep(nanoseconds: 500_000_000)
-                            let newStatus = manager.authorizationStatus
-                            if newStatus == .authorizedAlways || newStatus == .authorizedWhenInUse {
-                                await send(.stepGranted(3))
-                            } else {
-                                await send(.stepDenied(3))
-                            }
-                            
-                        default:
-                            await send(.stepDenied(3))
-                        }
+                        let granted = await permissionClient.requestLocation()
+                        await send(granted ? .stepGranted(3) : .stepDenied(3))
                     }
                     
                 case 4:
                     return .run { send in
-                        let center = UNUserNotificationCenter.current()
-                        let granted = try await center.requestAuthorization(options: [.alert, .sound, .badge])
-                        if granted {
-                            await send(.stepGranted(4))
-                        } else {
-                            await send(.stepDenied(4))
-                        }
+                        let granted = await permissionClient.requestNotification()
+                        await send(granted ? .stepGranted(4) : .stepDenied(4))
                     }
                     
                 case 5:
                     return .run { send in
-                        let granted = await AVCaptureDevice.requestAccess(for: .video)
-                        if granted {
-                            await send(.stepGranted(5))
-                        } else {
-                            await send(.stepDenied(5))
-                        }
+                        let granted = await permissionClient.requestCamera()
+                        await send(granted ? .stepGranted(5) : .stepDenied(5))
                         await send(.nextStep)
                     }
                     

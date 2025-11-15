@@ -52,6 +52,8 @@ struct Home: Reducer {
         var cadence: Int = 0
         var isAuthorized: Bool = false
         var isGoalAchieved: Bool = false
+        
+        var runningMotion: String = "러닝중"
     }
     
     enum Action: BindableAction, Equatable {
@@ -235,6 +237,7 @@ struct Home: Reducer {
             case .startRunning:
                 state.runningState = .running
                 watchSession.wakeWatchApp()
+                state.runningMotion = "러닝중"
                 if let coord = state.coord {
                     state.path = [coord]
                 }
@@ -276,6 +279,7 @@ struct Home: Reducer {
             case .pauseRunning:
                 state.runningState = .paused
                 watchSession.sendAction("pause")
+                state.runningMotion = "휴식중"
                 return .merge(
                     .send(.stopTimer),
                     .send(.stopHeartRate),
@@ -285,6 +289,7 @@ struct Home: Reducer {
             case .resumeRunning:
                 state.runningState = .running
                 watchSession.sendAction("resume")
+                state.runningMotion = "러닝중"
                 return .merge(
                     .run { [continuousClock] send in
                         for await _ in continuousClock.timer(interval: .seconds(1)) {
@@ -311,14 +316,6 @@ struct Home: Reducer {
                     pace: state.pace ?? "--'--\"",
                     distance: state.totalDistance ?? 0.0
                 )
-                
-                
-                //                state.elapsedTime = 0
-                //                state.timeText = "00:00:00"
-                //                state.heartRateBPM = nil
-                //                state.pace = "--'--\""
-                //                state.cadence = 0
-                //                state.totalDistance = nil
                 
                 return .merge(
                     .send(.stopTimer),
